@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
 
 
-  get 'auth/facebook/callback', to: 'facebook_app#create'
+  get '/auth/facebook/callback', to: 'facebook_app#create'
 
   root to: "welcome#index"
 
