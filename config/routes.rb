@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
   
   devise_for :users
+
+
+  get 'auth/facebook/callback', to: 'facebook_app#create'
+
   root to: "welcome#index"
 
-
+  get 'facebook_followed', to: 'facebook_app#followed'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
