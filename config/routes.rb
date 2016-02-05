@@ -1,13 +1,27 @@
 Rails.application.routes.draw do
   
+  get 'instagram_app/create'
+
   devise_for :users
-
-
-  get '/auth/facebook/callback', to: 'facebook_app#create'
 
   root to: "welcome#index"
 
-  get 'facebook_followed', to: 'facebook_app#followed'
+  # facebook actions routes: 
+
+  get '/auth/facebook/callback', to: 'facebook_app#create'
+
+  get 'facebooklogin', to: 'facebook_app#new'
+
+  get 'facebookfollowed', to: 'facebook_app#followed'
+  
+  # instagram actions routes:
+
+  get 'auth/instagram/callback', to: 'instagram_app#create'
+
+  get 'instagramfollowed', to: 'instagram_app#followed'
+
+  get 'instagramlogin', to: 'instagram_app#new'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

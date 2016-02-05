@@ -31,6 +31,8 @@ gem 'omniauth'
 
 gem 'omniauth-facebook'
 
+gem 'omniauth-instagram'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
