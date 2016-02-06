@@ -5,4 +5,14 @@ Rails.application.config.middleware.use OmniAuth::Builder do
   provider :instagram, '2929837f1ff24f8cabccd1a47a07b53b',
   					   '5d969832af5c4f66aea5b2d919970a7b', scope: 'public_content'
 
+  provider :twitter, 'LG74yEHe81rppMoq665Fbee8S', 'theOlCPDQYydrg8uTwcHPT9yNk4LZxOR8ijGZf3dQ7sam2w80H',
+					    {
+					      :secure_image_url => 'true',
+					      :image_size => 'original',
+					      :authorize_params => {
+					        :force_login => 'true',
+					        :lang => 'pt'
+					      }
+					    }
+
 end

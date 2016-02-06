@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   
   get 'instagram_app/create'
 
-  devise_for :users
+  devise_for :users, controllers: { sessions: 'mysessions' }
 
   root to: "welcome#index"
 
@@ -21,6 +21,16 @@ Rails.application.routes.draw do
   get 'instagramfollowed', to: 'instagram_app#followed'
 
   get 'instagramlogin', to: 'instagram_app#new'
+
+
+
+  # twitter actions routes:
+
+  get 'auth/twitter/callback', to: 'twitter_app#create'
+
+  get 'twitterlogin', to: 'twitter_app#new'
+
+  get 'twitterfollowed', to: 'twitter_app#followed'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
