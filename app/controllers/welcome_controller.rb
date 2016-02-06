@@ -4,4 +4,10 @@ before_action :authenticate_user!
 
   def index
   end
+
+  def logout
+  	
+  	
+
+  end
 end

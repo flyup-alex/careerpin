@@ -1,4 +1,7 @@
 class FacebookAppController < ApplicationController
+
+include FacebookAppHelper
+
 before_action :authenticate_user!
 
   def new
@@ -21,6 +24,7 @@ before_action :authenticate_user!
 
   def followed
 
-
+    @graph = facebook_data(current_user)
+    @hash = get_wall(current_user, 45309870078)
   end
 end

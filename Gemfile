@@ -34,6 +34,9 @@ gem 'omniauth-facebook'
 gem 'omniauth-instagram'
 
 gem 'omniauth-twitter'
+
+gem "koala", "~> 2.2"
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
