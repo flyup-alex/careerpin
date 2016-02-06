@@ -3,7 +3,7 @@ before_action :authenticate_user!
 
 def new
 	if current_user.providers.where(provider: 'twitter').any?
-		redirect_to twitterfollowed_path
+		redirect_to '/twitterfollowed'
 	else
 		redirect_to '/auth/twitter'
 	end
