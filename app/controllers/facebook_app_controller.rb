@@ -44,8 +44,17 @@ before_action :authenticate_user!
   end
 
   def show
+    if params[:times].nil? 
+      params[:times] = 0
+    end
 
-    
+    @graph = facebook_data(current_user)
+   @feed = @graph.get_connection( params[:id] , 'posts',
+                    {
+                      fields: ['message', 'id', 'from', 'type',
+                                'picture','full_picture', 'object_id', 'link', 'created_time', 'updated_time', 'place', 'actions' 
+
+                        ], limit: 5, :offset => "#{params[:times].to_i*5}"})
     
   end
 end

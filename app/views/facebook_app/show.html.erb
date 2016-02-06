@@ -1,1 +1,46 @@
-<%= params %>
+
+<center>
+	<h1>Ostatnie posty</h1>
+<nav class = "center">
+	  <ul class="pagination">
+	    <li>
+
+	    </li>
+	    <li><%= link_to "1", facebook_show_path(:id => params[:id], :times => 0) %></li>
+	    <li><%= link_to "2", facebook_show_path(:id => params[:id], :times => 1) %></li>
+	    <li><%= link_to "3", facebook_show_path(:id => params[:id], :times => 2) %></li>
+	    <li><%= link_to "4", facebook_show_path(:id => params[:id], :times => 3) %></li>
+	    <li><%= link_to "5", facebook_show_path(:id => params[:id], :times => 4) %></li>
+	    <li>
+	    </li>
+	  </ul>
+	</nav>
+
+<% @feed.each do |hash| %>
+
+	<div class = 'jumbotron'>
+		<p><%= hash['message'] %></p>
+		<p><h3><%= hash['from']['name'] %></h3></p>
+		<p><%= image_tag(hash['full_picture']) %></p>
+			<% link = hash['actions'].first %>
+		<p><%= link_to "Zobacz wpis na Facebooku.",  link['link'], target: 'blank'  %></p>
+		<p><%= hash['updated_time'] %></p>
+	</div>
+
+
+<% end %>
+
+<nav class = "center">
+	  <ul class="pagination">
+	    <li>
+
+	    </li>
+	    <li><%= link_to "1", facebook_show_path(:id => params[:id], :times => 0) %></li>
+	    <li><%= link_to "2", facebook_show_path(:id => params[:id], :times => 1) %></li>
+	    <li><%= link_to "3", facebook_show_path(:id => params[:id], :times => 2) %></li>
+	    <li><%= link_to "4", facebook_show_path(:id => params[:id], :times => 3) %></li>
+	    <li><%= link_to "5", facebook_show_path(:id => params[:id], :times => 4) %></li>
+	    <li>
+	    </li>
+	  </ul>
+	</nav>
