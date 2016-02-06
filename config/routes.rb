@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   get 'facebookfollowed', to: 'facebook_app#followed'
 
   get 'facebook-search', to: 'facebook_app#search'
+
+  get 'facebook-show', to: 'facebook_app#show'
   
   # instagram actions routes:
 

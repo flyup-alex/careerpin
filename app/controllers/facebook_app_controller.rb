@@ -30,14 +30,22 @@ before_action :authenticate_user!
 
   def search
     @graph = facebook_data(current_user)
-    if params[:search].present?
-    @search = @graph.search("#{params[:search]}", {:type => "page", limit: 5}) 
+    if params[:search].present? 
+      if params[:times].nil? 
+      params[:times] = 0
+      end
+    @search = @graph.search("#{params[:search]}", {:type => "page", limit: 5, :offset => "#{params[:times].to_i*5}"}) 
+    
+
     end
 
+    
     
   end
 
   def show
+
+    
     
   end
 end

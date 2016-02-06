@@ -1,9 +1,9 @@
 <center>
-
+<div class = 'jumbotron'>
 	<h2>Hi, <%= @graph.get_object("me")['name']  %>!</h2>
 	<h4>It is so nice to meet you today!</h4>
-	<%= image_tag "#{@graph.get_picture("me", type: :large)}" %> 
-
+	<%= image_tag  "#{@graph.get_picture("me", type: :large)}", class: "row" %> 
+</div>
 
 
 
@@ -13,7 +13,50 @@
 <%= submit_tag "Search" %></p>
 <% end %>
 </p>
+	<nav class = "center">
+	  <ul class="pagination">
+	    <li>
+
+	    </li>
+	    <li><%= link_to "1", facebook_search_path(:search => params[:search], :times => 0) %></li>
+	    <li><%= link_to "2", facebook_search_path(:search => params[:search], :times => 1) %></li>
+	    <li><%= link_to "3", facebook_search_path(:search => params[:search], :times => 2) %></li>
+	    <li><%= link_to "4", facebook_search_path(:search => params[:search], :times => 3) %></li>
+	    <li><%= link_to "5", facebook_search_path(:search => params[:search], :times => 4) %></li>
+	    <li>
+	    </li>
+	  </ul>
+	</nav>
+	<%= @search %>
+
+	<% if @search.present? %>
+	<% @search.each do |page|  %>
+	<div class = 'jumbotron'>
+	<p><h3><%= page['name'] %></h3></p>
+	<%= image_tag( @graph.get_picture( page['id'], type: :large) ) %>
+	<%= link_to "Zobacz profil", facebook_show_path(:id => "#{page['id']}") %>
+	</div>
+	<% end %>
+	<% end %>
+
+
+		<nav class = "center">
+	  <ul class="pagination">
+	    <li>
+
+	    </li>
+	    <li><%= link_to "1", facebook_search_path(:search => params[:search], :times => 0) %></li>
+	    <li><%= link_to "2", facebook_search_path(:search => params[:search], :times => 1) %></li>
+	    <li><%= link_to "3", facebook_search_path(:search => params[:search], :times => 2) %></li>
+	    <li><%= link_to "4", facebook_search_path(:search => params[:search], :times => 3) %></li>
+	    <li><%= link_to "5", facebook_search_path(:search => params[:search], :times => 4) %></li>
+	    <li>
+	    </li>
+	  </ul>
+	</nav>
+
 </center>
 
+<hr>
 
-<%= @search  %>
+
