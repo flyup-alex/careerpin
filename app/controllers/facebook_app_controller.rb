@@ -25,6 +25,19 @@ before_action :authenticate_user!
   def followed
 
     @graph = facebook_data(current_user)
-    @hash = get_wall(current_user, 45309870078)
+    #@hash = get_wall(current_user, 45309870078)
+  end
+
+  def search
+    @graph = facebook_data(current_user)
+    if params[:search].present?
+    @search = @graph.search("#{params[:search]}", {:type => "page", limit: 5}) 
+    end
+
+    
+  end
+
+  def show
+    
   end
 end

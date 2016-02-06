@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   get 'facebooklogin', to: 'facebook_app#new'
 
   get 'facebookfollowed', to: 'facebook_app#followed'
+
+  get 'facebook-search', to: 'facebook_app#search'
   
   # instagram actions routes:
 

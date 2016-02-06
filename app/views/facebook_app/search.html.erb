@@ -1,0 +1,19 @@
+<center>
+
+	<h2>Hi, <%= @graph.get_object("me")['name']  %>!</h2>
+	<h4>It is so nice to meet you today!</h4>
+	<%= image_tag "#{@graph.get_picture("me", type: :large)}" %> 
+
+
+
+
+
+<p><%= form_tag(facebook_search_path, :method => "get", id: "search-form") do %>
+<p><%= text_field_tag :search, params[:search], placeholder: "Search Pages" %>
+<%= submit_tag "Search" %></p>
+<% end %>
+</p>
+</center>
+
+
+<%= @search  %>
