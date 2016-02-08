@@ -13,11 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-<<<<<<< HEAD
-//= require_tree .
 //= require custom.js
 //= require default.js
-=======
 //= require bootstrap-sprockets
 //= require_tree .
->>>>>>> krzysiu2
+
