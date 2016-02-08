@@ -1,0 +1,5 @@
+<%= @ambasadors.each do |ambasador| %>
+<p>
+	<%= link_to "Taki link", ambasadors_show_path( id: => ambasador.id ) %>
+	</p>
+<% end %>

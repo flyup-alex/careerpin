@@ -1,6 +1,17 @@
 
 <center>
-	<h1>Ostatnie posty</h1>
+	<%= form_for @ambasador, :url => facebookfollowed_path, :method => 'post' do |f| %>
+      <%= f.hidden_field :object_id, :value => params[:id] %>
+      <%= f.hidden_field :provider, :value => 'facebook' %>
+      <%= f.hidden_field :last_seen, :value => Time.now %>
+      <%= f.hidden_field :user_id, :value => current_user.id %>
+      <%= f.hidden_field :name, :value => params[:name] %>
+
+      <%= f.submit "Dodaj #{@feed.first['from']['name']}, jako Ambasadora." %>
+      
+      <% end %>
+
+	
 <nav class = "center">
 	  <ul class="pagination">
 	    <li>
@@ -16,6 +27,7 @@
 	  </ul>
 	</nav>
 
+
 <% @feed.each do |hash| %>
 
 	<div class = 'jumbotron'>
@@ -24,7 +36,7 @@
 		<p><%= image_tag(hash['full_picture']) %></p>
 			<% link = hash['actions'].first %>
 		<p><%= link_to "Zobacz wpis na Facebooku.",  link['link'], target: 'blank'  %></p>
-		<p><%= hash['updated_time'] %></p>
+		<p><%= time_ago_in_words(hash['updated_time']) %></p>
 	</div>
 
 
@@ -44,3 +56,121 @@
 	    </li>
 	  </ul>
 	</nav>
+
+
+
+
+
+
+	---------------------------------------------
+
+
+	
+        <div id="page-wrapper">
+
+            <div class="container-fluid">
+							
+							<div class="row" id="primary">
+										<main id="content" class="col-md-6 col-md-offset-3" role="main">   
+                      <div class="row">  
+                             
+												<div class="col-xs-3">
+                    			<h1><i class="fa fa-facebook-official"></i></h1>
+                    		</div><!-- /.col-xs-3 -->
+                    		
+                     		<div class="col-xs-9 search-text">
+                     			<p class="lead">
+														Find Your
+														<br>
+														EB connections!
+                     			</p>
+												</div><!-- /.col-xs-9 .search-text -->               
+                      </div><!-- /.row -->
+                      
+                      <div class="row">
+
+												<div class="input-group input-group-lg">
+													<input type="text" class="form-control" placeholder="Search for...">
+													<span class="input-group-btn">
+														<button class="btn btn-default search-brand-ambasador" type="button" id="search">Search!</button>
+													</span>
+												</div><!-- /input-group -->
+                      	
+                      </div><!-- /.row -->
+
+										</main><!-- /#content -->
+										
+									</div><!-- /.row -->
+          
+          <div class="results">
+           
+									<div class="row">
+										                          
+                                    
+										<article class="search-result">
+
+													<div class="search-autor-image">
+														<a href=""><img src="image/placeholder4-web.jpg" alt=""></a>
+													</div><!-- /.search-autor-image -->
+
+													<div class="search-autor">
+														<a href="">Lorem ipsum</a>
+													</div><!-- /.search-autor -->
+													
+													<div class="search-butons">
+														<div class="search-add">
+															<a href="">Add&nbsp;to&nbsp;ambasadors</a>
+														</div><!-- /.search-see -->
+
+
+														<div class="search-see">
+															<a href="">See&nbsp;on&nbsp;Facebook</a>
+														</div><!-- /.search-add -->	
+													</div>
+										</article><!-- /.post -->		
+										
+												<article class="search-result">
+
+													<div class="search-autor-image">
+														<a href=""><img src="image/placeholder4-web.jpg" alt=""></a>
+													</div><!-- /.search-autor-image -->
+
+													<div class="search-autor">
+														<a href="">Lorem ipsum</a>
+													</div><!-- /.search-autor -->
+													
+													<div class="search-butons">
+														<div class="search-add">
+															<a href="">Add&nbsp;to&nbsp;ambasadors</a>
+														</div><!-- /.search-see -->
+
+
+														<div class="search-see">
+															<a href="">See&nbsp;on&nbsp;Facebook</a>
+														</div><!-- /.search-add -->	
+													</div>
+										</article><!-- /.post -->				
+
+						</div>
+            
+            	<nav class="text-center">
+								<ul class="pagination">
+									<li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+									<li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+									<li class=""><a href="#">2</a></li>
+									<li class=""><a href="#">3</a></li>
+									<li class=""><a href="#">4</a></li>
+									<li class=""><a href="#">5</a></li>
+									<li>
+										<a href="#" aria-label="Next">
+											<span aria-hidden="true">&raquo;</span>
+										</a>
+									</li>
+								</ul>
+							</nav>
+           
+           </div><!-- /.results -->
+            
+            </div><!-- /.container-fluid -->
+
+        </div><!-- /#page-wrapper -->

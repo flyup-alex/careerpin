@@ -1,12 +1,24 @@
 Rails.application.routes.draw do
   
+  get 'ambasadors/show'
+
+  get 'ambasadors/delete'
+
+  get 'ambasadors/index'
+
+  get 'ambasadors/create'
+
   get 'instagram_app/create'
 
   devise_for :users, controllers: { sessions: 'mysessions' }
 
   root to: "welcome#index"
 
+
+
   # facebook actions routes: 
+
+  post 'facebookfollowed', to: 'ambasadors#create'
 
   get '/auth/facebook/callback', to: 'facebook_app#create'
 
@@ -17,6 +29,7 @@ Rails.application.routes.draw do
   get 'facebook-search', to: 'facebook_app#search'
 
   get 'facebook-show', to: 'facebook_app#show'
+
   
   # instagram actions routes:
 
@@ -35,6 +48,12 @@ Rails.application.routes.draw do
   get 'twitterlogin', to: 'twitter_app#new'
 
   get 'twitterfollowed', to: 'twitter_app#followed'
+
+
+
+  # Ambasadors action routes: 
+  
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

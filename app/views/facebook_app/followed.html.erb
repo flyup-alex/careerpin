@@ -1,3 +1,5 @@
+
+
 <center>
 
 	<h2>Hi, <%= @graph.get_object("me")['name']  %>!</h2>
@@ -9,16 +11,27 @@
 <li>Możliwość zaczęcia obserwowania profili publicznych na facebooku</li>
 <li>Spis obserwowanych profili na facebooku</li>
 <li>Możliwość automatycznego streamu do career-pin</li>
-<!--
-</center>
-<hr>
-<%= @graph %>
+
+
+<%= @last_posts %>
+
+<p><%= current_user.last_sign_in_at %> User last sign in at</p>
+
+<p><%= current_user.current_sign_in_at %> User current sing in at</p>
+
 
 <hr>
-<%= @hash %>
+<h1>Twoi ambasadorzy: </h1>
+<p>
+<%= @ambasadors.each do |ambasador| %>
 
-<hr>
+<%= link_to "#{ambasador.name}", facebook_show_path(:id => "#{ambasador.object_id}", :name => "#{ambasador.name }") %>
+<%= @graph.get_connection( "#{ambasador.object_id}" , 'posts', {since: ambasador.last_seen.to_i },).size %>
+</p>
+<% end %>
 
--->
-
-<hr>
+<% current_user.ambasadors.each do |ambasador|%>
+<p>
+<%= ambasador.last_seen %>
+</p>
+<% end %>

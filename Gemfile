@@ -38,6 +38,8 @@ gem 'omniauth-twitter'
 gem "koala", "~> 2.2"
 
 gem 'will_paginate', '~> 3.0.6'
+
+gem 'bootstrap-sass', '~> 3.3.6'
 # Use Unicorn as the app server
 # gem 'unicorn'
 

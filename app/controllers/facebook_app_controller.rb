@@ -20,12 +20,17 @@ before_action :authenticate_user!
   	Provider.create_or_find(request.env['omniauth.auth'], current_user)
   	redirect_to facebookfollowed_path
 
+     
+
+
   end
 
   def followed
 
+    @ambasadors = current_user.ambasadors.where(provider: "facebook")
     @graph = facebook_data(current_user)
-    #@hash = get_wall(current_user, 45309870078)
+    
+
   end
 
   def search
@@ -47,14 +52,24 @@ before_action :authenticate_user!
     if params[:times].nil? 
       params[:times] = 0
     end
-
+     
     @graph = facebook_data(current_user)
-   @feed = @graph.get_connection( params[:id] , 'posts',
+       @feed = @graph.get_connection( params[:id] , 'posts',
                     {
                       fields: ['message', 'id', 'from', 'type',
                                 'picture','full_picture', 'object_id', 'link', 'created_time', 'updated_time', 'place', 'actions' 
 
                         ], limit: 5, :offset => "#{params[:times].to_i*5}"})
     
+    @ambasador = Ambasador.new
+
+    if  current_user.ambasadors.where(provider: "facebook", object_id: "#{params[:id]}").exists?
+      current_user.ambasadors.where(provider: "facebook", object_id: "#{params[:id]}").first.update(last_seen: Time.now)
+
+        end
+
+
   end
+
+  
 end
