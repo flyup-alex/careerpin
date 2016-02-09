@@ -34,7 +34,7 @@ before_action :authenticate_user!
   end
 
   def search
-        @ambasadors = current_user.ambasadors.all
+    @ambasadors = current_user.ambasadors.all
     @graph = facebook_data(current_user)
     if params[:search].present? 
       if params[:times].nil? 
@@ -52,6 +52,7 @@ before_action :authenticate_user!
   def show
     @ambasadors = current_user.ambasadors.all
     @graph = facebook_data(current_user)
+
     @feed = @graph.get_connection( params[:id] , 'posts',
                     {
                       fields: ['message', 'id', 'from', 'type',

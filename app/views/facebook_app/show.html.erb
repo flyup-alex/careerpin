@@ -1,3 +1,30 @@
+<br>
+<br>
+
+<ul>
+ 	<li>
+ 		<% if current_user.ambasadors.where(object_id: @feed.first['from']['id']).exists? %>
+ 		<%= button_to ambasadors_delete_path(@ambasadors.where(:name => @feed.first['from']['name'] ).first ), class: "button add-brand-ambasador",  method: :delete  do %>
+ 			<i class="fa fa-star-o"></i><span>Unfollow</span>
+ 			<% end %>
+
+ 		<% else %>
+ 		<%= form_for @ambasador  do |f| %>
+
+		<%= f.hidden_field :provider, :value => "facebook" %>
+		<%= f.hidden_field :last_seen, :value => Time.now %>
+		<%= f.hidden_field :object_id, :value => @feed.first['from']['id']%>
+		<%= f.hidden_field :user_id, :value => current_user.id %>
+		<%= f.hidden_field :name, :value => @feed.first['from']['name'] %>
+			<%= button_to 'ambasadors#create', class: "button add-brand-ambasador", method: :post do %>
+ 			<i class="fa fa-star-o"></i><span>Follow</span>
+ 			<% end %>
+
+		<% end %>
+		<% end %>
+	</li>
+</ul> 
+
  <div id="page-wrapper">
 
             <div class="container-fluid">

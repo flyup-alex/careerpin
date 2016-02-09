@@ -20,8 +20,7 @@ class AmbasadorsController < ApplicationController
 
   	  end
 
-  def delete
-  end
+
 
   def index
 
@@ -33,14 +32,19 @@ class AmbasadorsController < ApplicationController
 
   	@ambasador = Ambasador.new(super_params)
   	if @ambasador.save
-  	redirect_to facebookfollowed_path
+  	redirect_to '/facebook-search'
   	else
   	render 'index'
   	end
   
   end
 
-
+  def destroy
+    @ambasador = Ambasador.find(params[:format])
+    @ambasador.destroy
+    redirect_to facebook_search_path
+    
+  end
     
 
 

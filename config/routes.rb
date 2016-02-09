@@ -50,9 +50,10 @@ Rails.application.routes.draw do
   get 'twitterfollowed', to: 'twitter_app#followed'
 
 
-
+  
   # Ambasadors action routes: 
   
+  resources :ambasadors
 
 
   # The priority is based upon order of creation: first created -> highest priority.
