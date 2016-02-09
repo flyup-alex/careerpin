@@ -5,7 +5,7 @@ include FacebookAppHelper
 before_action :authenticate_user!
 
   def new
-
+       @ambasadors = current_user.ambasadors.all
   	if current_user.providers.where(provider: "facebook").any?
   		redirect_to facebookfollowed_path
   	else
@@ -18,7 +18,7 @@ before_action :authenticate_user!
 
   	@facebook_data = request.env['omniauth.auth']
   	Provider.create_or_find(request.env['omniauth.auth'], current_user)
-  	redirect_to facebookfollowed_path
+  	redirect_to '/facebook-search'
 
      
 
@@ -27,13 +27,14 @@ before_action :authenticate_user!
 
   def followed
 
-    @ambasadors = current_user.ambasadors.where(provider: "facebook")
+    @ambasadors = current_user.ambasadors.all
     @graph = facebook_data(current_user)
     
 
   end
 
   def search
+        @ambasadors = current_user.ambasadors.all
     @graph = facebook_data(current_user)
     if params[:search].present? 
       if params[:times].nil? 
@@ -49,18 +50,27 @@ before_action :authenticate_user!
   end
 
   def show
-    if params[:times].nil? 
-      params[:times] = 0
-    end
-     
+    @ambasadors = current_user.ambasadors.all
     @graph = facebook_data(current_user)
-       @feed = @graph.get_connection( params[:id] , 'posts',
+    @feed = @graph.get_connection( params[:id] , 'posts',
                     {
                       fields: ['message', 'id', 'from', 'type',
                                 'picture','full_picture', 'object_id', 'link', 'created_time', 'updated_time', 'place', 'actions' 
 
-                        ], limit: 5, :offset => "#{params[:times].to_i*5}"})
+                        ], limit: 7, :offset => "#{params[:times].to_i*5}"})
+    @feed2 = @graph.get_connection( params[:id] , 'albums',
+                    {
+                      fields: ['message', 'name', 'from', 'type',
+                                'picture','full_picture', 'object_id', 'link', 'created_time', 'updated_time', 'place', 'actions' 
+
+                        ], limit: 1, :offset => "#{params[:times].to_i*5}"})
+
+    if params[:times].nil? 
+      params[:times] = 0
+    end
+     
     
+       
     @ambasador = Ambasador.new
 
     if  current_user.ambasadors.where(provider: "facebook", object_id: "#{params[:id]}").exists?

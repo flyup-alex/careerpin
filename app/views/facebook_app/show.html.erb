@@ -1,175 +1,73 @@
+ <div id="page-wrapper">
 
-<center>
-	<%= form_for @ambasador, :url => facebookfollowed_path, :method => 'post' do |f| %>
-      <%= f.hidden_field :object_id, :value => params[:id] %>
-      <%= f.hidden_field :provider, :value => 'facebook' %>
-      <%= f.hidden_field :last_seen, :value => Time.now %>
-      <%= f.hidden_field :user_id, :value => current_user.id %>
-      <%= f.hidden_field :name, :value => params[:name] %>
-
-      <%= f.submit "Dodaj #{@feed.first['from']['name']}, jako Ambasadora." %>
-      
-      <% end %>
-
-	
-<nav class = "center">
-	  <ul class="pagination">
-	    <li>
-
-	    </li>
-	    <li><%= link_to "1", facebook_show_path(:id => params[:id], :times => 0) %></li>
-	    <li><%= link_to "2", facebook_show_path(:id => params[:id], :times => 1) %></li>
-	    <li><%= link_to "3", facebook_show_path(:id => params[:id], :times => 2) %></li>
-	    <li><%= link_to "4", facebook_show_path(:id => params[:id], :times => 3) %></li>
-	    <li><%= link_to "5", facebook_show_path(:id => params[:id], :times => 4) %></li>
-	    <li>
-	    </li>
-	  </ul>
-	</nav>
-
-
-<% @feed.each do |hash| %>
-
-	<div class = 'jumbotron'>
-		<p><%= hash['message'] %></p>
-		<p><h3><%= hash['from']['name'] %></h3></p>
-		<p><%= image_tag(hash['full_picture']) %></p>
-			<% link = hash['actions'].first %>
-		<p><%= link_to "Zobacz wpis na Facebooku.",  link['link'], target: 'blank'  %></p>
-		<p><%= time_ago_in_words(hash['updated_time']) %></p>
-	</div>
+            <div class="container-fluid">
+							
+							<div class="row" id="primary">
+										<main id="content" class="col-lg-6 col-lg-offset-3" role="main">                          
+                                    <% @feed.each do |hash| %>
+										<article class="post">
+											<header>
+												<div class="post-autor-image">
+													
+													<%= image_tag( @graph.get_picture( hash['from']['id'], type: :album)) %>
+												</div><!-- 
+												--><div class="post-autor">
+													<span><%= hash['from']['name'] %></span>
+													<br>
+													<time><%= time_ago_in_words(hash['updated_time']) %> ago</time>
+												</div><!-- /.post-autor -->
+												<div class="post-pin">
+													<a href="">Pin</a>
+												</div><!-- /.post-pin -->
+											</header>
+											<div class="post-image">
+												<%= image_tag(hash['full_picture']) %>
+											</div><!-- /.post-image -->
+											<div class="post-main-text">
+												<p><%= hash['message'] %></p>
+											</div>
+										</article><!-- /.post -->
+									<% end %>
 
 
-<% end %>
 
-<nav class = "center">
-	  <ul class="pagination">
-	    <li>
 
-	    </li>
-	    <li><%= link_to "1", facebook_show_path(:id => params[:id], :times => 0) %></li>
-	    <li><%= link_to "2", facebook_show_path(:id => params[:id], :times => 1) %></li>
-	    <li><%= link_to "3", facebook_show_path(:id => params[:id], :times => 2) %></li>
-	    <li><%= link_to "4", facebook_show_path(:id => params[:id], :times => 3) %></li>
-	    <li><%= link_to "5", facebook_show_path(:id => params[:id], :times => 4) %></li>
-	    <li>
-	    </li>
-	  </ul>
-	</nav>
 
+
+										</main><!-- /#content -->
+									</div>
+            
+            	<nav class="text-center">
+								<ul class="pagination">
+									<li class="active"><%= link_to "1", facebook_show_path(:id => params[:id], :times => 1) %></li>
+									<li class=""><%= link_to "2", facebook_show_path(:id => params[:id], :times => 2) %></li>
+									<li class=""><%= link_to "3", facebook_show_path(:id => params[:id], :times => 3) %></li>
+									<li class=""><%= link_to "4", facebook_show_path(:id => params[:id], :times => 4) %></li>
+									<li class=""><%= link_to "5", facebook_show_path(:id => params[:id], :times => 5) %></li>
+								</ul>
+							</nav>
+           
+           
+            
+            </div><!-- /.container-fluid -->
+
+        </div><!-- /#page-wrapper -->
 
 
 
 
 
 	---------------------------------------------
+<%= @feed2.each do |album| %>
+	<%= @graph.get_connection( album['id'] , 'photos',
+                    {
+                      fields: ['message', 'name', 'from', 'type', 'picture',
+                                'full_picture', 'object_id', 'link', 'created_time', 'updated_time'
+                        ], type: 'large', limit: 2, :offset => "#{params[:times].to_i*10}"}).each do |photo| %>
+                        <p><%= image_tag( @graph.get_picture( photo['id'], type: :album ) ) %></p>
+                        <p><%= photo %></p>
 
+	<% end  %>
+<% end %>
 
 	
-        <div id="page-wrapper">
-
-            <div class="container-fluid">
-							
-							<div class="row" id="primary">
-										<main id="content" class="col-md-6 col-md-offset-3" role="main">   
-                      <div class="row">  
-                             
-												<div class="col-xs-3">
-                    			<h1><i class="fa fa-facebook-official"></i></h1>
-                    		</div><!-- /.col-xs-3 -->
-                    		
-                     		<div class="col-xs-9 search-text">
-                     			<p class="lead">
-														Find Your
-														<br>
-														EB connections!
-                     			</p>
-												</div><!-- /.col-xs-9 .search-text -->               
-                      </div><!-- /.row -->
-                      
-                      <div class="row">
-
-												<div class="input-group input-group-lg">
-													<input type="text" class="form-control" placeholder="Search for...">
-													<span class="input-group-btn">
-														<button class="btn btn-default search-brand-ambasador" type="button" id="search">Search!</button>
-													</span>
-												</div><!-- /input-group -->
-                      	
-                      </div><!-- /.row -->
-
-										</main><!-- /#content -->
-										
-									</div><!-- /.row -->
-          
-          
-           
-									<div class="row">
-										                          
-                                    
-										<article class="search-result">
-
-													<div class="search-autor-image">
-														<a href=""><img src="image/placeholder4-web.jpg" alt=""></a>
-													</div><!-- /.search-autor-image -->
-
-													<div class="search-autor">
-														<a href="">Lorem ipsum</a>
-													</div><!-- /.search-autor -->
-													
-													<div class="search-butons">
-														<div class="search-add">
-															<a href="">Add&nbsp;to&nbsp;ambasadors</a>
-														</div><!-- /.search-see -->
-
-
-														<div class="search-see">
-															<a href="">See&nbsp;on&nbsp;Facebook</a>
-														</div><!-- /.search-add -->	
-													</div>
-										</article><!-- /.post -->		
-										
-												<article class="search-result">
-
-													<div class="search-autor-image">
-														<a href=""><img src="image/placeholder4-web.jpg" alt=""></a>
-													</div><!-- /.search-autor-image -->
-
-													<div class="search-autor">
-														<a href="">Lorem ipsum</a>
-													</div><!-- /.search-autor -->
-													
-													<div class="search-butons">
-														<div class="search-add">
-															<a href="">Add&nbsp;to&nbsp;ambasadors</a>
-														</div><!-- /.search-see -->
-
-
-														<div class="search-see">
-															<a href="">See&nbsp;on&nbsp;Facebook</a>
-														</div><!-- /.search-add -->	
-													</div>
-										</article><!-- /.post -->				
-
-						</div>
-            
-            	<nav class="text-center">
-								<ul class="pagination">
-									<li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
-									<li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
-									<li class=""><a href="#">2</a></li>
-									<li class=""><a href="#">3</a></li>
-									<li class=""><a href="#">4</a></li>
-									<li class=""><a href="#">5</a></li>
-									<li>
-										<a href="#" aria-label="Next">
-											<span aria-hidden="true">&raquo;</span>
-										</a>
-									</li>
-								</ul>
-							</nav>
-      
-            
-            </div><!-- /.container-fluid -->
-
-        </div><!-- /#page-wrapper -->
