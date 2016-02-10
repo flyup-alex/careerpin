@@ -8,9 +8,9 @@ include TwitterAppHelper
 def new
 
 	if current_user.providers.where(provider: 'twitter').any?
-		render 'followed'
+		redirect_to twitterfollowed_path
 	else
-		redirect_to '/auth/twitter'
+		redirect_to root_path
 	end
 
 end
