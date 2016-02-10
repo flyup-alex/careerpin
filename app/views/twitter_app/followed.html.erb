@@ -11,9 +11,9 @@
 <% a = "#{friend.profile_image_url_https}" %>
 <% a.slice!("_normal") %>
             <div class="box">
-            	<% a = friend.status.created_at.to_time %>
+            	<% c = friend.status.created_at.to_time %>
             	<% b = current_user.last_sign_in_at.to_time %>
-            	<% if a > b %>
+            	<% if c > b %>
 	              <div class="number-of-posts">
 	                <span>New</span>
 	              </div>
