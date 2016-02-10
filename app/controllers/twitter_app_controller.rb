@@ -8,9 +8,9 @@ include TwitterAppHelper
 def new
 
 	if current_user.providers.where(provider: 'twitter').any?
-		redirect_to twitterfollowed_path
+		render 'followed'
 	else
-		redirect_to root_path
+		redirect_to '/auth/twitter'
 	end
 
 end
@@ -25,12 +25,8 @@ def create
 end
 
 def followed
-	@tweet = Twitter::REST::Client.new do |config|
-        config.consumer_key        = "LG74yEHe81rppMoq665Fbee8S"
-        config.consumer_secret     = "theOlCPDQYydrg8uTwcHPT9yNk4LZxOR8ijGZf3dQ7sam2w80H"
-        config.access_token        = "#{current_user.providers.where(provider: "twitter").first.token1}"
-        config.access_token_secret = "#{current_user.providers.where(provider: "twitter").first.token2}"
-     end
+
+	@friends = twitter_pass.friends
 	
 end
 

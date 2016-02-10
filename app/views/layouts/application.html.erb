@@ -63,8 +63,14 @@
                         <% end %>
                     </li>
                     <li>
-                        <%= link_to '/twitterlogin ' do %>
-                        <i class="fa fa-twitter"></i>
+                        <% if current_user.providers.where(provider: "twitter") %>
+                            <%= link_to :back do %>
+                            <i class="fa fa-twitter"></i>
+                            <% end %>
+                        <% else %>
+                            <%= link_to '/twitterlogin' do %>
+                            <i class="fa fa-twitter"></i>
+                            <% end %>
                         <% end %>
                     </li>
                     <li>
