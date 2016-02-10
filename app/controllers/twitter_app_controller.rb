@@ -25,7 +25,7 @@ def create
 
 def followed
 
-	@friends = twitter_pass.friends( {:count => 20} )
+	@friends = twitter_pass.friends
 	
 end
 
