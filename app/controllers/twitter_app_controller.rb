@@ -30,7 +30,7 @@ def followed
         config.consumer_secret     = "theOlCPDQYydrg8uTwcHPT9yNk4LZxOR8ijGZf3dQ7sam2w80H"
         config.access_token        = "#{current_user.providers.where(provider: "twitter").first.token1}"
         config.access_token_secret = "#{current_user.providers.where(provider: "twitter").first.token2}"
-	@tweet.friends( { :count => 5 } )
+     end
 	
 end
 
