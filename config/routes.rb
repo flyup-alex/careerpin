@@ -49,6 +49,8 @@ Rails.application.routes.draw do
 
   get 'twitterfollowed', to: 'twitter_app#followed'
 
+  get 'twitterboard', to: 'twitter_app#show'
+
 
   
   # Ambasadors action routes: 

@@ -1,8 +1,6 @@
 <br>
 <br>
 
-<ul>
- 	<li>
  		<% if current_user.ambasadors.where(object_id: @feed.first['from']['id']).exists? %>
  		<%= button_to ambasadors_delete_path(@ambasadors.where(:name => @feed.first['from']['name'] ).first ), class: "button add-brand-ambasador",  method: :delete  do %>
  			<i class="fa fa-star-o"></i><span>Unfollow</span>
@@ -22,8 +20,7 @@
 
 		<% end %>
 		<% end %>
-	</li>
-</ul> 
+
 
  <div id="page-wrapper">
 

@@ -1,0 +1,49 @@
+
+   <div id="page-wrapper">
+
+            <div class="container-fluid">
+							
+							<div class="row" id="primary">
+										<main id="content" class="col-lg-6 col-lg-offset-3" role="main">                          
+                                    <%= @last_tweets.each do |tweet| %>
+										<article class="post">
+											<header>
+												<div class="post-autor-image">
+													<%= image_tag(tweet.user.profile_image_uri(size = :bigger)) %> 
+													
+												</div><!-- 
+												--><div class="post-autor">
+													<span><%= tweet.user.name %></span>
+													<br>
+													<time><%= time_ago_in_words(tweet.created_at) %> ago</time>
+												</div><!-- /.post-autor -->
+												<div class="post-pin">
+													<a href="">Pin</a>
+												</div><!-- /.post-pin -->
+											</header>
+											<div class="post-image">
+												<%= image_tag(tweet.media[0]["media_url"], :size => tweet.media[0]["sizes"]["thumb"]) if(tweet.media.present?)%>
+											</div><!-- /.post-image -->
+											<div class="post-main-text">
+												<p><%= tweet.text %></p>
+											</div>
+										</article><!-- /.post -->
+									<% end %>
+										</main><!-- /#content -->
+									</div>
+            
+            	<nav class="text-center">
+								<ul class="pagination">
+									<li class="active"><%= link_to "1", facebook_show_path(:id => params[:id], :times => 1) %></li>
+									<li class=""><%= link_to "2", facebook_show_path(:id => params[:id], :times => 2) %></li>
+									<li class=""><%= link_to "3", facebook_show_path(:id => params[:id], :times => 3) %></li>
+									<li class=""><%= link_to "4", facebook_show_path(:id => params[:id], :times => 4) %></li>
+									<li class=""><%= link_to "5", facebook_show_path(:id => params[:id], :times => 5) %></li>
+								</ul>
+							</nav>
+           
+           
+            
+            </div><!-- /.container-fluid -->
+
+        </div><!-- /#page-wrapper -->

@@ -1,37 +1,32 @@
+<div class="container-fluid brand-ambasadors">
+            
+            <div class="box add-ambasador">
+              <%= link_to '/facebook-search', method: :get do%>
+                <i class="fa fa-plus"></i>
+              <% end %>
+            </div>
+<% if current_user.providers.where(provider: "facebook").any?%>
+<% @ambasadors.each do |ambasador| %>
+            <div class="box">
+              <div class="number-of-posts">
+                <span><%= @graph.get_connection( "#{ambasador.object_id}" , 'posts', {since: ambasador.last_seen.to_i },).size %></span>
+              </div>
+                <%= link_to facebook_show_path(:id => "#{ambasador.object_id}", :name => "#{ambasador.name }") do  %>
+                <div class="profile-image">
+                  <%= image_tag "#{@graph.get_picture("#{ambasador.object_id}", type: :large)}" %>
+                </div>
+                <div class="profile-name">
+                  <span class="text-center"><%= ambasador.name %></span>
+                </div>
+                <% end %>
+            </div>
+        <% end %>
+      <% end %> 
+
+          </div><!-- /.results -->
+
+        </div><!-- /.container-fluid -->
+
+      </div><!-- /#page-wrapper -->
 
 
-<center>
-
-	<h2>Hi, <%= @graph.get_object("me")['name']  %>!</h2>
-	<h4>It is so nice to meet you today!</h4>
-	<%= image_tag "#{@graph.get_picture("me", type: :large)}" %> 
-
-<ul><%= link_to "Znajdź profil, jaki chcesz obserwować.", facebook_search_path %></ul>
-<li>Możliwość szukania profili publicznych na facebooku</li>
-<li>Możliwość zaczęcia obserwowania profili publicznych na facebooku</li>
-<li>Spis obserwowanych profili na facebooku</li>
-<li>Możliwość automatycznego streamu do career-pin</li>
-
-
-<%= @last_posts %>
-
-<p><%= current_user.last_sign_in_at %> User last sign in at</p>
-
-<p><%= current_user.current_sign_in_at %> User current sing in at</p>
-
-
-<hr>
-<h1>Twoi ambasadorzy: </h1>
-<p>
-<%= @ambasadors.each do |ambasador| %>
-
-<%= link_to "#{ambasador.name}", facebook_show_path(:id => "#{ambasador.object_id}", :name => "#{ambasador.name }") %>
-<%= @graph.get_connection( "#{ambasador.object_id}" , 'posts', {since: ambasador.last_seen.to_i },).size %>
-</p>
-<% end %>
-
-<% current_user.ambasadors.each do |ambasador|%>
-<p>
-<%= ambasador.last_seen %>
-</p>
-<% end %>

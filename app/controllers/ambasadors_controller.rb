@@ -32,7 +32,7 @@ class AmbasadorsController < ApplicationController
 
   	@ambasador = Ambasador.new(super_params)
   	if @ambasador.save
-  	redirect_to '/facebook-search'
+  	redirect_to '/facebookfollowed'
   	else
   	render 'index'
   	end
