@@ -7,12 +7,17 @@
             </div>
 <% if current_user.providers.where(provider: "twitter").any?%>
 <% @friends.each do |friend| %>
+
 <% a = "#{friend.profile_image_url_https}" %>
 <% a.slice!("_normal") %>
             <div class="box">
-              <div class="number-of-posts">
-                <span>New</span>
-              </div>
+            	<% a = friend.status.created_at.to_time %>
+            	<% b = current_user.last_sign_in_at.to_time %>
+            	<% if a > b %>
+	              <div class="number-of-posts">
+	                <span>New</span>
+	              </div>
+              	<% end %>
                 <%= link_to twitterboard_path(:id => "#{ friend.id }", :screen_name => "#{ friend.screen_name }") do  %>
                 <div class="profile-image">
                   <%= image_tag( a ) %>

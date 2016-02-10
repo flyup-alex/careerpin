@@ -8,7 +8,8 @@ include TwitterAppHelper
 def new
 
 	if current_user.providers.where(provider: 'twitter').any?
-		current_user.providers.where(provider: 'twitter').first.destroy
+		render 'followed'
+	else
 		redirect_to '/auth/twitter'
 	end
 
@@ -21,11 +22,11 @@ def create
 	Provider.create_or_find( request.env['omniauth.auth'], current_user)
 	redirect_to twitterfollowed_path
 	
-
+end
 
 def followed
 
-	@friends = twitter_pass.friends
+	@friends = twitter_pass.friends( { :count => 5 } )
 	
 end
 
@@ -34,13 +35,15 @@ def show
 	@last_tweets = twitter_feed("#{params[:screen_name]}")
 end
 
-	
-end
+def search
 
-private
-	
-	def kosmos
-
-
+	if params[:search].present? 
+      if params[:times].nil? 
+      params[:times] = 0
+      end
 	end
+end
+	
+
+
 end

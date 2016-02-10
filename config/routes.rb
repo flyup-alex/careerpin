@@ -51,7 +51,7 @@ Rails.application.routes.draw do
 
   get 'twitterboard', to: 'twitter_app#show'
 
-
+  get 'twittersearch', to: 'twitter_app#search'
   
   # Ambasadors action routes: 
   

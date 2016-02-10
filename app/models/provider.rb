@@ -10,11 +10,6 @@ belongs_to :user
 	    	provider.token1 = auth.credentials.token
 	    	provider.user_id = current_user.id
 	    	provider.save
-
-	    if auth.provider = "twitter"
-	    	
-	    end
-
 		end
 	end
 
