@@ -6,7 +6,7 @@
               <% end %>
             </div>
 <% if current_user.providers.where(provider: "twitter").any?%>
-<% @friends.each do |friend| %>
+<% @tweet.friends( { :count => 5 } ).each do |friend| %>
 
 <% a = "#{friend.profile_image_url_https}" %>
 <% a.slice!("_normal") %>
