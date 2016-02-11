@@ -42,6 +42,8 @@ gem 'will_paginate', '~> 3.0.6'
 gem 'bootstrap-sass', '~> 3.3.6'
 
 gem 'twitter'
+
+gem 'instagram'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
