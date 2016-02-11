@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
   
+  get 'articles/index'
+
+  get 'articles/create'
+
+  get 'articles/destroy'
+
   get 'ambasadors/show'
 
   get 'ambasadors/delete'
@@ -30,6 +36,8 @@ Rails.application.routes.draw do
 
   get 'facebook-show', to: 'facebook_app#show'
 
+  get 'facebookpin', to: 'articles#create_fb'
+
   
   # instagram actions routes:
 
@@ -54,6 +62,8 @@ Rails.application.routes.draw do
   get 'twitterboard', to: 'twitter_app#show'
 
   get 'twittersearch', to: 'twitter_app#search'
+
+  get 'twitterpin', to: 'articles#create_twt'
   
   # Ambasadors action routes: 
   

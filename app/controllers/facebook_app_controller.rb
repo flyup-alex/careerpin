@@ -61,7 +61,7 @@ before_action :authenticate_user!
                       fields: ['message', 'id', 'from', 'type',
                                 'picture','full_picture', 'object_id', 'link', 'created_time', 'updated_time', 'place', 'actions' 
 
-                        ], limit: 7, :offset => "#{params[:times].to_i*5}"})
+                        ], limit: 20, :offset => "#{params[:times].to_i*2}"})
     @feed2 = @graph.get_connection( params[:id] , 'albums',
                     {
                       fields: ['message', 'name', 'from', 'type',

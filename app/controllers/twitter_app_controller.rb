@@ -18,15 +18,15 @@ end
 def create
 
 
-	@twitter_data = request.env['omniauth.auth']
+	request.env['omniauth.auth']
 	Provider.create_or_find( request.env['omniauth.auth'], current_user)
-	@friends = twitter_pass.friends
-	TwitterFriend.create(@friends, current_user)
-	redirect_to twitterfollowed_path
+		redirect_to facebookfollowed_path
 	
 end
 
 def followed
+	@friendships = twitter_pass.friends
+	TwitterFriend.create(@friendships, current_user)
 
 	@friends = TwitterFriend.all	
 

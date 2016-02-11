@@ -13,7 +13,7 @@
                     		
                      		<div class="col-xs-9 search-text">
                      			<p class="lead">
-														<%= current_user.name %>
+														<%= current_user.company_name %>
 														<br>
 														Let's find some good news!
                      			</p>
@@ -44,7 +44,7 @@
 
           						<% if @search.present? %>
           						
-        						<%= @search.each do |tweet| %>
+        						<% @search.each do |tweet| %>
 										<article class="post">
 											<header>
 												<div class="post-autor-image">

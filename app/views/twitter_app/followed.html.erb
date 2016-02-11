@@ -7,7 +7,6 @@
             </div>
 <% if current_user.providers.where(provider: "twitter").any?%>
 <% @friends.each do |friend| %>
-
 <% a = "#{friend.friend_profile_picture}" %>
 <% a.slice!("_normal") %>
             <div class="box">

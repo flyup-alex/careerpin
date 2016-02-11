@@ -1,11 +1,11 @@
-
+<%= link_to "Spróbuj career-pin", twitterpin_path(:profile_name => @last_tweets.first.user.name)%>
    <div id="page-wrapper">
 
             <div class="container-fluid">
 							
 							<div class="row" id="primary">
 										<main id="content" class="col-lg-6 col-lg-offset-3" role="main">                          
-                                    <%= @last_tweets.each do |tweet| %>
+                                    <% @last_tweets.each do |tweet| %>
 										<article class="post">
 											<header>
 												<div class="post-autor-image">
