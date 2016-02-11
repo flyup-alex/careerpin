@@ -1,5 +1,7 @@
 class InstagramAppController < ApplicationController
 
+include InstagramAppHelper
+
 before_action :authenticate_user!
 
   def new
@@ -22,15 +24,20 @@ before_action :authenticate_user!
 
   def followed
 
-    Instagram.configure do |config|
+    instagram_pass
 
-    config.client_id = "2929837f1ff24f8cabccd1a47a07b53b"
+     @instagram = Instagram.user()  
 
-    config.access_token = "#{current_user.providers.where(provider: "instagram").first.token1}"
 
-    end
+  
+ 
+  end
 
-  @instagram = Instagram.user_recent_media("1627109417", {:count => 1})
-  @instagram2 = Instagram.user()	
+  def show
+
+    instagram_pass
+
+    @instagram = Instagram.user_recent_media("#{params[:user_id]}", {:count => 40})
+    
   end
 end

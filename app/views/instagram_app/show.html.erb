@@ -1,0 +1,39 @@
+
+   <div id="page-wrapper">
+
+            <div class="container-fluid">
+              
+              <div class="row" id="primary">
+                    <main id="content" class="col-lg-6 col-lg-offset-3" role="main">
+                                    <% @instagram.each do |insta| %>
+                    <article class="post">
+                      <header>
+                        <div class="post-autor-image">
+                          <%= image_tag( insta.user.profile_picture ) %> 
+                          
+                        </div><!-- 
+                        --><div class="post-autor">
+                          <span><%= insta.user.username %></span>
+                          <br>
+                          <time></time>
+                        </div><!-- /.post-autor -->
+                        <div class="post-pin">
+                          <a href="">Pin</a>
+                        </div><!-- /.post-pin -->
+                      </header>
+                      <div class="post-image">
+                        <%= image_tag( insta.images.standard_resolution.url ) %> 
+                      </div><!-- /.post-image -->
+                      <div class="post-main-text">
+                        
+                        <p><% insta.tags.each do |tag| %>
+                        <%=" #"+"#{tag}" %>
+                        <% end %></p>
+                      </div>
+                    </article><!-- /.post -->
+                  <% end %>
+                    </main><!-- /#content -->
+                  </div>          
+                      </div><!-- /.container-fluid -->
+
+                  </div><!-- /#page-wrapper -->

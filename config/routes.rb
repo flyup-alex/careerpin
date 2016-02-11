@@ -39,6 +39,8 @@ Rails.application.routes.draw do
 
   get 'instagramlogin', to: 'instagram_app#new'
 
+  get 'instagramshow', to: 'instagram_app#show'
+
 
 
   # twitter actions routes:
