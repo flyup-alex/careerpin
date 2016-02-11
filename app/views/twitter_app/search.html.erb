@@ -13,9 +13,9 @@
                     		
                      		<div class="col-xs-9 search-text">
                      			<p class="lead">
-														<%= 123 %>
+														<%= current_user.name %>
 														<br>
-														Let's find some ambasadors!
+														Let's find some good news!
                      			</p>
 												</div><!-- /.col-xs-9 .search-text -->               
                       </div><!-- /.row -->
@@ -25,14 +25,47 @@
 
 
 												<div class="input-group input-group-lg">
-													<%= text_field_tag :search, params[:search], placeholder: "Search Users", class: "form-control" %>
+													<%= text_field_tag :search, params[:search], placeholder: "Type in phrase or your company name", class: "form-control" %>
 													<span class="input-group-btn">
 														<%= submit_tag "Search", class: "btn btn-default search-brand-ambasador" %>
 													</span>
 												</div><!-- /input-group -->
-                      	<% end %>
-                      </div><!-- /.row -->
+                      						<% end %>
+                      						</div><!-- /.row -->
 
 										</main><!-- /#content -->
 										
 									</div><!-- /.row -->
+
+            
+            </div><!-- /.container-fluid -->
+						</div>
+            
+
+          						<% if @search.present? %>
+          						
+        						<%= @search.each do |tweet| %>
+										<article class="post">
+											<header>
+												<div class="post-autor-image">
+													<%= image_tag(tweet.user.profile_image_uri(size = :bigger)) %> 
+													
+												</div><!-- 
+												--><div class="post-autor">
+													<span><%= tweet.user.name %></span>
+													<br>
+													<time><%= time_ago_in_words(tweet.created_at) %> ago</time>
+												</div><!-- /.post-autor -->
+												<div class="post-pin">
+													<a href="">Pin</a>
+												</div><!-- /.post-pin -->
+											</header>
+											<div class="post-image">
+												<%= image_tag(tweet.media[0]["media_url"], :size => tweet.media[0]["sizes"]["thumb"]) if(tweet.media.present?)%>
+											</div><!-- /.post-image -->
+											<div class="post-main-text">
+												<p><%= tweet.text %></p>
+											</div>
+										</article><!-- /.post -->
+									<% end %>
+									<% end %>

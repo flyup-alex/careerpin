@@ -18,18 +18,21 @@ before_action :authenticate_user!
 
   	@facebook_data = request.env['omniauth.auth']
   	Provider.create_or_find(request.env['omniauth.auth'], current_user)
+    if current_user.ambasadors.any?
   	redirect_to '/facebookfollowed'
-
+    else
+    redirect_to '/facebook-search'
+    end
      
 
 
   end
 
   def followed
-
+    
     @ambasadors = current_user.ambasadors.all
     @graph = facebook_data(current_user)
-    
+    @accounts = @graph.get_connection( 'me' , 'accounts')
 
   end
 
