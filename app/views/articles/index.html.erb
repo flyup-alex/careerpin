@@ -1,2 +1,123 @@
-<h1>Articles#index</h1>
-<p>Find me in app/views/articles/index.html.erb</p>
+
+		<div id="page-wrapper">
+
+			<div class="career-pin-conatiner">
+
+				<%= @articles.each_slice(1) do |art1, art2, art3, art4, art5, art6, art7|%>
+				<div class="cp-2">
+					<a href="">
+						<div class="cp-image">
+							<%= image_tag(art1.photo_url, class: "myBackgroundImage" )%>
+						</div>
+						<div class="cp-social delete">
+							<button role="button" class="btn btn-danger">unPin</button>
+							<i class="fa fa-facebook"></i>
+						</div>
+						<div class="cp-text">
+							<p> <%= art1.text %></p>
+							<time><%= time_ago_in_words(art1.time) %></time>
+						</div>
+					</a>
+				</div><!-- /.cp-4 -->
+				<% end %>
+				<div class="cp-2">
+					<a href="">
+						<div class="cp-image">
+							<img src="image/placeholder3-web.jpg" class="myBackgroundImage">
+						</div>
+						<div class="cp-social delete">
+							<button role="button" class="btn btn-danger">unPin</button>
+							<i class="fa fa-instagram"></i>
+						</div>
+						<div class="cp-text">
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi laborum, reprehenderit. At saepe velit, amet atque dolorum neque minima quas ad nesciunt praesentium, necessitatibus sunt numquam, quidem explicabo quis, id?</p>
+							<time>12.02.2016</time>
+						</div>
+					</a>
+				</div><!-- /.cp-2 -->
+				<div class="cp-2">
+					<a href="">
+						<div class="cp-image">
+							<img src="image/placeholder9-web.jpg" class="myBackgroundImage">
+						</div>
+						<div class="cp-social delete">
+							<button role="button" class="btn btn-danger">unPin</button>
+							<i class="fa fa-twitter"></i>
+						</div>
+						<div class="cp-text">
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi laborum, reprehenderit. At saepe velit, amet atque dolorum neque minima quas ad nesciunt praesentium, necessitatibus sunt numquam, quidem explicabo quis, id?</p>
+							<time>12.02.2016</time>
+						</div>
+					</a>
+				</div><!-- /.cp-2 -->			
+
+				<div class="cp-1">
+					<a href="">
+						<div class="cp-image">
+							<img src="image/placeholder5-web.jpg" class="myBackgroundImage">
+						</div>
+						<div class="cp-social delete">
+							<button role="button" class="btn btn-danger">unPin</button>
+							<i class="fa fa-instagram"></i>
+						</div>
+						<div class="cp-text">
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi laborum, reprehenderit. At saepe velit, amet atque dolorum neque minima quas ad nesciunt praesentium, necessitatibus sunt numquam, quidem explicabo quis, id?</p>
+							<time>12.02.2016</time>
+						</div>
+					</a>
+				</div><!-- /.cp-1 -->
+				<div class="cp-1">
+					<a href="">
+						<div class="cp-image">
+							<img src="image/placeholder2-web.jpg" class="myBackgroundImage">
+						</div>
+						<div class="cp-social delete">
+							<button role="button" class="btn btn-danger">unPin</button>
+							<i class="fa fa-facebook"></i>
+						</div>
+						<div class="cp-text">
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi laborum, reprehenderit. At saepe velit, amet atque dolorum neque minima quas ad nesciunt praesentium, necessitatibus sunt numquam, quidem explicabo quis, id?</p>
+							<time>12.02.2016</time>
+						</div>
+					</a>
+				</div><!-- /.cp-1 -->	
+				<div class="cp-1">
+					<a href="">
+						<div class="cp-image">
+							<img src="image/placeholder8-web.jpg" class="myBackgroundImage">
+						</div>
+						<div class="cp-social delete">
+							<button role="button" class="btn btn-danger">unPin</button>
+							<i class="fa fa-facebook"></i>
+						</div>
+						<div class="cp-text">
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi laborum, reprehenderit. At saepe velit, amet atque dolorum neque minima quas ad nesciunt praesentium, necessitatibus sunt numquam, quidem explicabo quis, id?</p>
+							<time>12.02.2016</time>
+						</div>
+					</a>
+				</div><!-- /.cp-1 -->
+				<div class="cp-1">
+					<a href="">
+						<div class="cp-image">
+							<img src="image/placeholder13-web.jpg" class="myBackgroundImage">
+						</div>
+						<div class="cp-social delete">
+							<button role="button" class="btn btn-danger">unPin</button>
+							<i class="fa fa-twitter"></i>
+						</div>
+						<div class="cp-text">
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi laborum, reprehenderit. At saepe velit, amet atque dolorum neque minima quas ad nesciunt praesentium, necessitatibus sunt numquam, quidem explicabo quis, id?</p>
+							<time>12.02.2016</time>
+						</div>
+					</a>
+				</div><!-- /.cp-1 -->		
+
+			</div><!-- /.career-pin-conatiner -->
+
+		</div><!-- /#page-wrapper -->
+		
+	</div><!-- /#wrapper -->
+	
+	<!-- Custom JavaScript -->
+	<script src="custom.js"></script>
+

@@ -5,7 +5,7 @@ include FacebookAppHelper
 before_action :authenticate_user!
 
   def new
-       @ambasadors = current_user.ambasadors.all
+      @ambasadors = current_user.ambasadors.all
   	if current_user.providers.where(provider: "facebook").any?
   		redirect_to facebookfollowed_path
   	else
@@ -32,11 +32,13 @@ before_action :authenticate_user!
     
     @ambasadors = current_user.ambasadors.all
     @graph = facebook_data(current_user)
-    @accounts = @graph.get_connection( 'me' , 'accounts')
+    
+
 
   end
 
   def search
+    
     @ambasadors = current_user.ambasadors.all
     @graph = facebook_data(current_user)
     if params[:search].present? 
@@ -53,9 +55,9 @@ before_action :authenticate_user!
   end
 
   def show
-    @ambasadors = current_user.ambasadors.all
     @graph = facebook_data(current_user)
-
+    @ambasadors = current_user.ambasadors.all
+    @ambasador = Ambasador.new
     @feed = @graph.get_connection( params[:id] , 'posts',
                     {
                       fields: ['message', 'id', 'from', 'type',
@@ -68,19 +70,15 @@ before_action :authenticate_user!
                                 'picture','full_picture', 'object_id', 'link', 'created_time', 'updated_time', 'place', 'actions' 
 
                         ], limit: 1, :offset => "#{params[:times].to_i*5}"})
-
     if params[:times].nil? 
       params[:times] = 0
-    end
-     
+    end 
     
-       
-    @ambasador = Ambasador.new
 
     if  current_user.ambasadors.where(provider: "facebook", object_id: "#{params[:id]}").exists?
       current_user.ambasadors.where(provider: "facebook", object_id: "#{params[:id]}").first.update(last_seen: Time.now)
 
-        end
+    end
 
 
   end

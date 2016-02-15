@@ -14,7 +14,7 @@ def get_wall(user, id )
                       fields: ['message', 'id', 'from', 'type',
                                 'picture','full_picture', 'object_id', 'link', 'created_time', 'updated_time', 'place', 
 
-                        ]})
+                        ], limit: 10 })
 	
 end
 

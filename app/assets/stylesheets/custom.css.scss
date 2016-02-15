@@ -742,6 +742,10 @@ h1 .fa-instagram {
 		Career-Pin
 ==================================== */
 
+html {
+	box-sizing: border-box;
+}
+
 .career-pin-conatiner {
 	max-width: 1200px;
 	margin: 0 auto;
@@ -757,33 +761,262 @@ h1 .fa-instagram {
 	flex-wrap: wrap;
 }
 
-.box-career-pin-1 {
-	width: 300px;
-	height: 250px;
-	background: #333;
+.career-pin-conatiner a {
+	color: #fff;
 }
 
-.box-career-pin-2 {
-	width: 600px;
-	height: 250px;
-	background: #777;
+.career-pin-conatiner a:hover {
+	text-decoration: none;
+}
+
+.career-pin-conatiner i.fa-facebook {
+	background-color: #3b5998;
+}
+
+.career-pin-conatiner i.fa-twitter {
+	background-color: #55acee;
+}
+
+.career-pin-conatiner i.fa-instagram {
+	background-color: #3f729b;
 }
 
 
+/* ========================
+		Common styles
+======================== */
 
+.cp-4,
+.cp-2,
+.cp-1 {
+	overflow: hidden;
+}
 
+.cp-4 a,
+.cp-2 a,
+.cp-1 a {
+	text-decoration: none;
+	color: #fff;	
+}
 
+.cp-image {
+	overflow: hidden;
+	max-width: 100%;
+}
 
+.cp-image img {
+	-webkit-transition: all 0.7s ease-in-out;
+	transition: all 0.7s ease-in-out;
+}
 
+.cp-social {
+	width: 100%;
+	height: 80px;
+	position: relative;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: end;
+	-webkit-justify-content: flex-end;
+	-ms-flex-pack: end;
+	justify-content: flex-end;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
+}
 
+.cp-social i {
+	text-align: center;
+	line-height: 50px;
+	width: 50px;
+	height: 50px;
+	margin: 15px;
+	border-radius: 100%;
+	font-size: 30px;
+	color: #fff;
+	-webkit-transition: all 0.35s ease;
+	transition: all 0.35s ease;
+}
 
+.cp-social.delete button {
+	margin-left: 15px;
+}
+.cp-social.delete {
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	-ms-flex-pack: justify;
+	justify-content: space-between;
+}
 
+.cp-text {
+	box-sizing: border-box;
+	min-width: 100%;
+	padding: 20px;
+	position: relative;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	-webkit-box-pack: end;
+	-webkit-justify-content: flex-end;
+	-ms-flex-pack: end;
+	justify-content: flex-end;
+}
 
+.cp-text p {
+	word-spacing: 0.9;
+	letter-spacing: 0.9;
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
 
+.cp-text time {
+	-webkit-align-self: flex-end;
+	-ms-flex-item-align: end;
+	align-self: flex-end;
+	box-sizing: content-box;
+	display: block;
+	width: 80px;
+	font-style: italic;
+	color: rgba(0,0,0,0.7);
+	font-weight: 400;
+	background: rgba(255,255,255,0.4);
+	padding: 5px;
+	border-radius: 15px;
+}
 
+a:hover .cp-image img {
+	-webkit-transform: scale(1.1);
+	transform: scale(1.1);
+}
 
+a:hover .cp-social i {
+	line-height: 60px;
+	width: 60px;
+	height: 60px;
+	margin: 10px;
+	border-radius: 100%;
+	font-size: 35px;
+}
 
+/* ========================
+		Box 4
+======================== */
 
+.cp-4 {
+	height: 500px;
+	width: 100%;
+}
 
+.cp-4 .cp-image {
+	height: 500px;
+}
 
+.cp-4 .cp-social {
+	top: -500px;
+}
 
+.cp-4 .cp-text {
+	height: 420px;
+	top: -500px;
+}
+
+.cp-4 .cp-text p {
+	font-size: 28px;
+	line-height: 42px;
+	font-weight: 600;
+}
+
+/* ========================
+		Box 1 & Box 2
+======================== */
+
+.cp-1,
+.cp-2 {
+	height: 300px;
+}
+
+.cp-1 .cp-image,
+.cp-2 .cp-image {
+	height: 300px;
+}
+.cp-1 .cp-social,
+.cp-2 .cp-social {
+	top: -300px;
+}
+.cp-1 .cp-text,
+.cp-2 .cp-text {
+	height: 220px;
+	top: -300px;
+}
+
+.cp-1 .cp-text p {
+	font-size: 18px;
+	font-weight: 400;
+	line-height: 26px;
+}
+
+.cp-2 .cp-text p {
+	font-size: 22px;
+	font-weight: 400;
+	line-height: 33px;
+}
+
+/* ============================
+		Media Query for Box's
+============================ */
+@media only screen and (max-width:480px){
+ .cp-1 {
+		width: 100%;
+	}
+}
+@media only screen and (min-width:481px){
+	.cp-1 {
+		width: 50%;
+	}
+}
+@media only screen and (min-width:960px){
+	.cp-1 {
+		width: 25%;
+	}
+}
+
+@media only screen and (max-width:640px){
+ 	.cp-2 {
+		width: 100%;
+	}
+}
+@media only screen and (min-width:641px){
+	.cp-2 {
+		width: 50%;
+	}
+}
+@media only screen and (max-width:850px){
+	.cp-2 .cp-text p {
+		font-size: 18px;
+		line-height: 26px;
+	}
+}
+
+@media only screen and (max-width:450px){
+ 	.cp-4 .cp-text p {
+		font-size: 26px;
+		font-weight: 500;
+		line-height: 39px;
+	}
+}
+
+@media only screen and (min-width:451px){
+ 	.cp-4 .cp-text p {
+		width: 75%;
+		font-size: 26px;
+		font-weight: 500;
+		line-height: 39px;
+	}
+}

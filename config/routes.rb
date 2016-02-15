@@ -20,6 +20,8 @@ Rails.application.routes.draw do
 
   root to: "welcome#index"
 
+  get 'articles/:id', to: 'articles#index'
+
 
 
   # facebook actions routes: 
@@ -48,6 +50,8 @@ Rails.application.routes.draw do
   get 'instagramlogin', to: 'instagram_app#new'
 
   get 'instagramshow', to: 'instagram_app#show'
+
+  get 'instagrampin', to: 'articles#create_inst'
 
 
 
