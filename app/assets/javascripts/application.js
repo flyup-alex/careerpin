@@ -18,5 +18,5 @@
 //= require default.js
 //= require bootstrap
 //= require_tree .
-
+//= require jquery.cover.js
 
