@@ -10,7 +10,7 @@ def self.create_careerpin_fb( data, current_user, provider)
     article.time = info['updated_time']
     article.photo_url = info['full_picture']
     article.provider = provider
-    article.link = "www.facebook.com/#{info['id']}"
+    article.link = "http://facebook.com/#{info['id']}"
     article.author = info['from']['name']
     article.user_id = current_user.id
 	  article.save      

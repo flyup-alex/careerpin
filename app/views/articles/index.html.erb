@@ -3,114 +3,52 @@
 
 			<div class="career-pin-conatiner">
 
-				<%= @articles.each_slice(1) do |art1, art2, art3, art4, art5, art6, art7|%>
+				<% @articles.each do |art1|%>
 				<div class="cp-2">
-					<a href="">
+					<%= link_to art1.link, target: "blank" do %>
 						<div class="cp-image">
+							<% if art1.photo_url.nil? && art1.provider == "twitter" %>
+							<%= image_tag("https://s.graphiq.com/sites/default/files/2307/media/images/Twitter_Blue_1409382.png")%>
+							<% end %>
+							<% if art1.photo_url.nil? && art1.provider == "facebook" %>
+							<%= image_tag("https://s.graphiq.com/sites/default/files/2307/media/images/Twitter_Blue_1409382.png")%>
+							<% else %>
 							<%= image_tag(art1.photo_url, class: "myBackgroundImage" )%>
+							<% end %>
 						</div>
 						<div class="cp-social delete">
+							<%if user_signed_in? %>
 							<button role="button" class="btn btn-danger">unPin</button>
+							<% end %>
+							<% if art1.provider == "facebook" %>
 							<i class="fa fa-facebook"></i>
+							<% end %>
+							<% if art1.provider == "twitter" %>
+							<i class="fa fa-twitter"></i>
+							<% end %>
+							<% if art1.provider == "instagram" %>
+							<i class="fa fa-instagram"></i>
+							<% end %>
 						</div>
 						<div class="cp-text">
-							<p> <%= art1.text %></p>
+							<% if art1.text <=> [1,2,3] %>
+							<p>
+							<% art1.text.each do |text| %>
+							<%= text %>
+							<% end %>
+							</p>
+							<% else %> 
+							<p>
+							<%= art1.text %>
+			
+							</p>
+							<% end %>
 							<time><%= time_ago_in_words(art1.time) %></time>
 						</div>
-					</a>
+					<% end %>
 				</div><!-- /.cp-4 -->
 				<% end %>
-				<div class="cp-2">
-					<a href="">
-						<div class="cp-image">
-							<img src="image/placeholder3-web.jpg" class="myBackgroundImage">
-						</div>
-						<div class="cp-social delete">
-							<button role="button" class="btn btn-danger">unPin</button>
-							<i class="fa fa-instagram"></i>
-						</div>
-						<div class="cp-text">
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi laborum, reprehenderit. At saepe velit, amet atque dolorum neque minima quas ad nesciunt praesentium, necessitatibus sunt numquam, quidem explicabo quis, id?</p>
-							<time>12.02.2016</time>
-						</div>
-					</a>
-				</div><!-- /.cp-2 -->
-				<div class="cp-2">
-					<a href="">
-						<div class="cp-image">
-							<img src="image/placeholder9-web.jpg" class="myBackgroundImage">
-						</div>
-						<div class="cp-social delete">
-							<button role="button" class="btn btn-danger">unPin</button>
-							<i class="fa fa-twitter"></i>
-						</div>
-						<div class="cp-text">
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi laborum, reprehenderit. At saepe velit, amet atque dolorum neque minima quas ad nesciunt praesentium, necessitatibus sunt numquam, quidem explicabo quis, id?</p>
-							<time>12.02.2016</time>
-						</div>
-					</a>
-				</div><!-- /.cp-2 -->			
-
-				<div class="cp-1">
-					<a href="">
-						<div class="cp-image">
-							<img src="image/placeholder5-web.jpg" class="myBackgroundImage">
-						</div>
-						<div class="cp-social delete">
-							<button role="button" class="btn btn-danger">unPin</button>
-							<i class="fa fa-instagram"></i>
-						</div>
-						<div class="cp-text">
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi laborum, reprehenderit. At saepe velit, amet atque dolorum neque minima quas ad nesciunt praesentium, necessitatibus sunt numquam, quidem explicabo quis, id?</p>
-							<time>12.02.2016</time>
-						</div>
-					</a>
-				</div><!-- /.cp-1 -->
-				<div class="cp-1">
-					<a href="">
-						<div class="cp-image">
-							<img src="image/placeholder2-web.jpg" class="myBackgroundImage">
-						</div>
-						<div class="cp-social delete">
-							<button role="button" class="btn btn-danger">unPin</button>
-							<i class="fa fa-facebook"></i>
-						</div>
-						<div class="cp-text">
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi laborum, reprehenderit. At saepe velit, amet atque dolorum neque minima quas ad nesciunt praesentium, necessitatibus sunt numquam, quidem explicabo quis, id?</p>
-							<time>12.02.2016</time>
-						</div>
-					</a>
-				</div><!-- /.cp-1 -->	
-				<div class="cp-1">
-					<a href="">
-						<div class="cp-image">
-							<img src="image/placeholder8-web.jpg" class="myBackgroundImage">
-						</div>
-						<div class="cp-social delete">
-							<button role="button" class="btn btn-danger">unPin</button>
-							<i class="fa fa-facebook"></i>
-						</div>
-						<div class="cp-text">
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi laborum, reprehenderit. At saepe velit, amet atque dolorum neque minima quas ad nesciunt praesentium, necessitatibus sunt numquam, quidem explicabo quis, id?</p>
-							<time>12.02.2016</time>
-						</div>
-					</a>
-				</div><!-- /.cp-1 -->
-				<div class="cp-1">
-					<a href="">
-						<div class="cp-image">
-							<img src="image/placeholder13-web.jpg" class="myBackgroundImage">
-						</div>
-						<div class="cp-social delete">
-							<button role="button" class="btn btn-danger">unPin</button>
-							<i class="fa fa-twitter"></i>
-						</div>
-						<div class="cp-text">
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi laborum, reprehenderit. At saepe velit, amet atque dolorum neque minima quas ad nesciunt praesentium, necessitatibus sunt numquam, quidem explicabo quis, id?</p>
-							<time>12.02.2016</time>
-						</div>
-					</a>
-				</div><!-- /.cp-1 -->		
+				
 
 			</div><!-- /.career-pin-conatiner -->
 

@@ -6,7 +6,7 @@ include InstagramAppHelper
 
   def index
 
-    @articles = Article.where(:user_id => params[:id]).limit(32).order(time: :desc)
+    @articles = Article.where(:user_id => params[:id]).order(time: :desc)
   end
 
   def create_fb
