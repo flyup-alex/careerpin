@@ -18,8 +18,7 @@
 													<time><%= time_ago_in_words(tweet.created_at) %> ago</time>
 												</div><!-- /.post-autor -->
 												<div class="post-pin">
-													<a href="">Pin</a>
-												</div><!-- /.post-pin -->
+													<%= link_to "Pin", root_path %>												</div><!-- /.post-pin -->
 											</header>
 											<div class="post-image">
 												<%= image_tag(tweet.media[0]["media_url"], :size => tweet.media[0]["sizes"]["thumb"]) if(tweet.media.present?)%>

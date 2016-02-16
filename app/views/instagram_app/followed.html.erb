@@ -1,16 +1,9 @@
 <div class="container-fluid brand-ambasadors">
             
-            <div class="box add-ambasador">
-              <%= link_to '/twittersearch', method: :get do%>
-                <i class="fa fa-plus"></i>
-              <% end %>
-            </div>
+            
 <% if current_user.providers.where(provider: "instagram").any?%>
 
             <div class="box">
-                <div class="number-of-posts">
-                  <span>New</span>
-                </div>
                 <%= link_to instagramshow_path(:user_id => @instagram.id ) do  %>
                 <div class="profile-image">
                 	<%= image_tag( @instagram.profile_picture) %>

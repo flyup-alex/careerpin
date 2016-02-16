@@ -2,6 +2,7 @@
 		<div id="page-wrapper">
 
 			<div class="career-pin-conatiner">
+<% if @articles.present? %>
 
 				<% @articles.each do |art1|%>
 				<div class="cp-2">
@@ -39,12 +40,14 @@
 							<%= art1.text %>
 							</p>
 							<% end %>
-							<time><%= time_ago_in_words(art1.time) %></time>
+							<time><%= time_ago_in_words(art1.time)+ " ago"%></time>
 						</div>
 					<% end %>
 				</div><!-- /.cp-4 -->
 				<% end %>
-				
+				<%else%>
+				Tekst mówiący o tym jak działa careerspin
+				<% end %>
 
 			</div><!-- /.career-pin-conatiner -->
 

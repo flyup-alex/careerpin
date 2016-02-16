@@ -13,7 +13,13 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 
-
+  <script type="text/javascript">
+  (function($) {
+   $(document).ready(function() {
+    $(".myBackgroundImage").cover();
+   });
+  })(jQuery);
+  </script>
 </head>
 
 <body>
@@ -31,9 +37,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                
-                <a class="navbar-brand" href="index.html">Career-Pin</a>
-                
+                <%= link_to "Career-Pin", root_path, class: "navbar-brand" %>
                 <!-- Top Menu Items -->
                                 <ul class="nav navbar-right pull-right top-nav">
                                         <li class="dropdown">

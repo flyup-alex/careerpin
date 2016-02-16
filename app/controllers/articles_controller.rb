@@ -7,6 +7,7 @@ include InstagramAppHelper
   def index
 
     @articles = Article.where(:user_id => params[:id]).order(time: :desc)
+    
   end
 
   def create_fb
@@ -37,6 +38,6 @@ include InstagramAppHelper
   def destroy
     article = Article.find(params[:id])
     article.destroy
-    redirect_to '/articles/7'
+    redirect_to article_path(current_user.id)
   end
 end
