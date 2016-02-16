@@ -1,10 +1,8 @@
 Rails.application.routes.draw do
   
-  get 'articles/index'
+  get 'articles/:id', to: 'articles#index'
 
   get 'articles/create'
-
-  get 'articles/destroy'
 
   get 'ambasadors/show'
 
@@ -23,7 +21,7 @@ Rails.application.routes.draw do
   get 'articles/:id', to: 'articles#index'
 
 
-
+  resources :articles
   # facebook actions routes: 
 
   post 'facebookfollowed', to: 'ambasadors#create'

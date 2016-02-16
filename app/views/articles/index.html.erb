@@ -18,7 +18,9 @@
 						</div>
 						<div class="cp-social delete">
 							<%if user_signed_in? %>
-							<button role="button" class="btn btn-danger">unPin</button>
+							<%=button_to article_path(art1), role: "button", class: "btn btn-danger",  method: :delete do  %>
+							unPin
+							<% end %>
 							<% end %>
 							<% if art1.provider == "facebook" %>
 							<i class="fa fa-facebook"></i>
@@ -31,16 +33,10 @@
 							<% end %>
 						</div>
 						<div class="cp-text">
-							<% if art1.text <=> [1,2,3] %>
-							<p>
-							<% art1.text.each do |text| %>
-							<%= text %>
-							<% end %>
-							</p>
-							<% else %> 
+							<% if art1.provider == "instagram" %>
+							<% else %>
 							<p>
 							<%= art1.text %>
-			
 							</p>
 							<% end %>
 							<time><%= time_ago_in_words(art1.time) %></time>
