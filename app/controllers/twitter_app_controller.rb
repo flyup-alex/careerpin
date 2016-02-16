@@ -16,8 +16,6 @@ def new
 end
 
 def create
-
-
 	request.env['omniauth.auth']
 	Provider.create_or_find( request.env['omniauth.auth'], current_user)
 	@friendships = twitter_pass.friends
