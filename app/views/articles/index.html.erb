@@ -1,4 +1,16 @@
+<h1 class="text-center">Your career-pin!</h1>
+       <div class="jumbotron">
+        <div class="container">
 
+         <strong><h4  class="lead">&lt;iframe width = 100%, height = 3100px, frameborder = 0, src="https://careerpin.herokuapp.com/articles/<%=current_user.id%>"&gt;&lt;/iframe&gt;</h4></strong>
+        </div>
+       </div>
+       <div class="container">
+       <h4>You shuld copy and paste this code in your html structure. <strong>Career-Pin is fully responsive, so it works with any resolution and display.</strong><br> If you have any questions, call us: +48 796 798 700</h4>
+       </div>
+       <br>
+       <br>
+       <br>
 		<div id="page-wrapper">
 
 			<div class="career-pin-conatiner">
@@ -12,7 +24,7 @@
 							<%= image_tag("https://s.graphiq.com/sites/default/files/2307/media/images/Twitter_Blue_1409382.png")%>
 							<% end %>
 							<% if art1.photo_url.nil? && art1.provider == "facebook" %>
-							<%= image_tag("https://s.graphiq.com/sites/default/files/2307/media/images/Twitter_Blue_1409382.png")%>
+							<%= image_tag("https://s.graphiq.com/sites/default/files/2307/media/images/Facebook_Blue_1409375.png")%>
 							<% else %>
 							<%= image_tag(art1.photo_url, class: "myBackgroundImage" )%>
 							<% end %>

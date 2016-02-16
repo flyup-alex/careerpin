@@ -1,3 +1,12 @@
+<h1 class="text-center">Show us your brand!</h1>
+       <div class="jumbotron">
+        <div class="container">
+         <h4  class="lead">Type in your brand's name or profile name you want to observe. You can add as many profiles as you want. All new posts will be visible by clicking Facebook icon on the left. The chosen or all posts from your observed profiles will get to career-pin.</h4>
+        </div>
+       </div>
+
+
+       <br>
 
         <div id="page-wrapper">
 
@@ -12,11 +21,7 @@
                     		</div><!-- /.col-xs-3 -->
                     		
                      		<div class="col-xs-9 search-text">
-                     			<p class="lead">
-														<%= @graph.get_object("me")['name']  %>
-														<br>
-														Let's find some ambasadors!
-                     			</p>
+                     		
 												</div><!-- /.col-xs-9 .search-text -->               
                       </div><!-- /.row -->
                       
@@ -25,7 +30,7 @@
 
 
 												<div class="input-group input-group-lg">
-													<%= text_field_tag :search, params[:search], placeholder: "Search Pages", class: "form-control" %>
+													<%= text_field_tag :search, params[:search], placeholder: "Find your page", class: "form-control" %>
 													<span class="input-group-btn">
 														<%= submit_tag "Search", class: "btn btn-default search-brand-ambasador" %>
 													</span>

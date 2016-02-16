@@ -1,5 +1,5 @@
-<%= link_to "Spróbuj career-pin", instagrampin_path(:user_id => @instagram.first.user.id)%>
-   <div id="page-wrapper">
+
+    <%= link_to "Spróbuj career-pin", instagrampin_path(:user_id => @instagram.first.user.id), class: "btn btn-success center"%>
 
             <div class="container-fluid">
               
@@ -18,7 +18,7 @@
                           <time><%= time_ago_in_words (Time.at(insta['created_time'].to_i))   %></time>
                         </div><!-- /.post-autor -->
                         <div class="post-pin">
-                          <a href=""></a>
+                          <a href="">Pin</a>
                         </div><!-- /.post-pin -->
                       </header>
                       <div class="post-image">

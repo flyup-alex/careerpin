@@ -133,6 +133,21 @@ img {
 	font-size: 40px;
 }
 
+/* ============================
+		Followed peopole and else 
+============================ */
+
+.center {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+}
+
 .brand-ambasadors {
 	display: -webkit-box;
 	display: -webkit-flex;
@@ -162,13 +177,47 @@ img {
 	text-decoration: none;
 }
 
+.box .profile-image img {
+	position: relative;
+	top: 0;
+	width: 120px;
+	height: 120px;
+	border-radius: 10px;
+}
+
+.box .profile-name {
+	position: relative;
+	top: 0;
+	width: 120px;
+	height: 60px;
+	padding: 5px;
+	color: #202531;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
+}
+
+.box:hover img {
+	box-shadow: 0px 0px 40px 0px rgba(0,0,0,0.8);
+	cursor: pointer;
+}
+
 .number-of-posts {
 	position: relative;
 	width: 30px;
 	height: 30px;
 	border-radius: 15px;
 	background: #2D3340;
-	top: -15px;
+	top: -195px;
 	left: 100px;
 	display: -webkit-box;
 	display: -webkit-flex;
@@ -213,69 +262,6 @@ img {
 
 .box.add-ambasador:hover {
 	box-shadow: 5px 5px 50px 0px rgba(0,0,0,0.75);
-	cursor: pointer;
-}
-
-.box .profile-image img {
-	position: relative;
-	top: -30px;
-	width: 120px;
-	height: 120px;
-	border-radius: 10px;
-}
-
-.box .profile-image.alt img {
-	position: relative;
-	top: 0px;
-	width: 120px;
-	height: 120px;
-	border-radius: 10px;
-}
-
-.box .profile-name {
-	position: relative;
-	top: -30px;
-	width: 120px;
-	height: 60px;
-	padding: 5px;
-	color: #202531;
-	display: -webkit-box;
-	display: -webkit-flex;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-pack: center;
-	-webkit-justify-content: center;
-	-ms-flex-pack: center;
-	justify-content: center;
-	-webkit-box-align: center;
-	-webkit-align-items: center;
-	-ms-flex-align: center;
-	align-items: center;
-}
-
-.box .profile-name.alt {
-	position: relative;
-	top: 0;
-	width: 120px;
-	height: 60px;
-	padding: 5px;
-	color: #202531;
-	display: -webkit-box;
-	display: -webkit-flex;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-pack: center;
-	-webkit-justify-content: center;
-	-ms-flex-pack: center;
-	justify-content: center;
-	-webkit-box-align: center;
-	-webkit-align-items: center;
-	-ms-flex-align: center;
-	align-items: center;
-}
-
-.box:hover img {
-	box-shadow: 0px 0px 40px 0px rgba(0,0,0,0.8);
 	cursor: pointer;
 }
 
@@ -739,68 +725,6 @@ h1 .fa-instagram {
 }
 
 /* ====================================
-		Cover Image JS
-==================================== */
-
-.greenishCover {
-	position:static;
-	height:100%;
-	width:100%;
-	overflow:hidden;	
-}
-/* HEIGHT 100%*/
-.height.greenishCover div {
-	position:relative;
-	height:100%;
-	width:10100%;
-	left:-5000%;
-	text-align:center;
-	
-}	
-.height.greenishCover img {
-	display:inline;
-	height:100%;
-	margin-top:0 !important;
-}
-.height.left.greenishCover div {
-	position:absolute;
-	left:0px;
-	text-align:left;
-}
-.height.right.greenishCover div {
-	position:absolute;
-	right:0px;
-	left:auto;
-	text-align:right;
-}
-/* WIDTH 100%*/
-.width.greenishCover div {
-	position:relative;
-	width:100%;
-	top:50%;
-}	
-.width.greenishCover img {
-	display:block;
-	width:100%;
-}
-.width.top.greenishCover div {
-	position:absolute;
-	top:0px;
-}
-.width.top.greenishCover img {
-	margin-top:0px !important;
-}
-.width.bottom.greenishCover div {
-	position:absolute;
-	bottom:0px;
-}
-.width.bottom.greenishCover img {
-	margin-top:0px !important;
-	position:absolute;
-	bottom:0px;
-}
-
-/* ====================================
 		Career-Pin
 ==================================== */
 
@@ -835,28 +759,14 @@ html {
 	background-color: #3b5998;
 }
 
-.career-pin-conatiner i.fa-facebook.alt {
-	background-color: #fff;
-	color: #3b5998;
-}
-
 .career-pin-conatiner i.fa-twitter {
 	background-color: #55acee;
-}
-
-.career-pin-conatiner i.fa-twitter.alt {
-	background-color: #fff;
-	color: #55acee;
 }
 
 .career-pin-conatiner i.fa-instagram {
 	background-color: #3f729b;
 }
 
-.career-pin-conatiner i.fa-instagram.alt {
-	background-color: #fff;
-	color: #3f729b;
-}
 
 /* ========================
 		Common styles
@@ -958,7 +868,7 @@ html {
 	align-self: flex-end;
 	box-sizing: content-box;
 	display: block;
-	min-width: 80px;
+	width: 80px;
 	font-style: italic;
 	color: rgba(0,0,0,0.7);
 	font-weight: 400;

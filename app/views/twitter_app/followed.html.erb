@@ -1,3 +1,13 @@
+<h1 class="text-center">Post tweet, Pin tweet!</h1>
+       <div class="jumbotron">
+        <div class="container">
+         <h4  class="lead">These are profiles you follow. You can pin some posts of these to your career-pin. </h4>
+        </div>
+       </div>
+       <br>
+       <br>
+       <br>
+
 <div class="container-fluid brand-ambasadors">
             
 <% if current_user.providers.where(provider: "twitter").any?%>
@@ -5,7 +15,14 @@
 <% a = "#{friend.friend_profile_picture}" %>
 <% a.slice!("_normal") %>
             <div class="box">
-              <% if friend.friend_last_status.nil? %>
+                <%= link_to twitterboard_path(:id => "#{ friend.id }", :screen_name => "#{ friend.friend_screen_name}") do  %>
+                <div class="profile-image">
+                  <%= image_tag( a ) %>
+                </div>
+                <div class="profile-name">
+                  <span class="text-center"><%= friend.friend_name %></span>
+                </div>
+                             <% if friend.friend_last_status.nil? %>
               <% else %>
               <% c = friend.friend_last_status.to_time %>
               <% b = current_user.last_sign_in_at.to_time %>
@@ -15,13 +32,6 @@
                 </div>
                 <% end %>
                 <% end %>
-                <%= link_to twitterboard_path(:id => "#{ friend.id }", :screen_name => "#{ friend.friend_screen_name}") do  %>
-                <div class="profile-image">
-                  <%= image_tag( a ) %>
-                </div>
-                <div class="profile-name">
-                  <span class="text-center"><%= friend.friend_name %></span>
-                </div>
                 <% end %>
             </div>
         <% end %>

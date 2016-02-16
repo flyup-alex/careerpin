@@ -13,7 +13,7 @@ include InstagramAppHelper
   def create_fb
   	@feed = get_wall(current_user, params[:id])
   	Article.create_careerpin_fb(@feed, current_user, "facebook" )
-  	redirect_to root_path
+  	redirect_to article_path(current_user.id)
 
   end
 
@@ -23,7 +23,7 @@ include InstagramAppHelper
     #end
     @tweets = twitter_feed(params[:profile_name])
     Article.create_careerpin_twt(@tweets, current_user, "twitter")
-    redirect_to root_path
+    redirect_to article_path(current_user.id)
   	
   end
 
@@ -31,7 +31,7 @@ include InstagramAppHelper
     instagram_pass
     @instagram = Instagram.user_recent_media("#{params[:user_id]}", {:count => 40})
     Article.create_careerpin_inst(@instagram, current_user, "instagram")
-    redirect_to root_path
+    redirect_to article_path(current_user.id)
     
   end
 

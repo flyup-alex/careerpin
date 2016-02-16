@@ -1,3 +1,9 @@
+<h1 class="text-center">What's new? </h1>
+
+       <br>
+       <br>
+       <br>
+
 <div class="container-fluid brand-ambasadors">
 
   <div class="box add-ambasador">
@@ -8,7 +14,15 @@
 <% if current_user.providers.where(provider: "facebook").any?%>
 <% @ambasadors.each do |ambasador| %>
             <div class="box">
-              <% posts_since_last_view =  @graph.get_connection( "#{ambasador.object_id}" , 'posts', {since: ambasador.last_seen.to_i },).size %>
+              
+                <%= link_to facebook_show_path(:id => "#{ambasador.object_id}", :name => "#{ambasador.name }") do  %>
+                <div class="profile-image">
+                  <%= image_tag "#{@graph.get_picture("#{ambasador.object_id}", type: :large)}" %>
+                </div>
+                <div class="profile-name">
+                  <span class="text-center"><%= ambasador.name %></span>
+                </div>
+                <% posts_since_last_view =  @graph.get_connection( "#{ambasador.object_id}" , 'posts', {since: ambasador.last_seen.to_i },).size %>
                 <% if posts_since_last_view != 0 %>
               <div class="number-of-posts">
 
@@ -17,13 +31,6 @@
                 
               </div>
               <% end %>
-                <%= link_to facebook_show_path(:id => "#{ambasador.object_id}", :name => "#{ambasador.name }") do  %>
-                <div class="profile-image">
-                  <%= image_tag "#{@graph.get_picture("#{ambasador.object_id}", type: :large)}" %>
-                </div>
-                <div class="profile-name">
-                  <span class="text-center"><%= ambasador.name %></span>
-                </div>
                 <% end %>
             </div>
         <% end %>
