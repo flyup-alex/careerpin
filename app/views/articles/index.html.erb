@@ -48,6 +48,11 @@
 				<%else%>
 				Tekst mówiący o tym jak działa careerspin
 				<% end %>
+				<script >
+				var transport = new easyXDM.transport.BestAvailableTransport({}, function(){
+				    transport.postMessage(document.body.scrollHeight);
+				});
+				</script>
 
 			</div><!-- /.career-pin-conatiner -->
 

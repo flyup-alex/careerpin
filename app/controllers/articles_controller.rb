@@ -6,7 +6,7 @@ include InstagramAppHelper
 
   def index
 
-    @articles = Article.where(:user_id => params[:id]).order(time: :desc)
+    @articles = Article.where(:user_id => params[:id]).limit(20).order(time: :desc)
     
   end
 
