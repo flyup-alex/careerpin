@@ -18,7 +18,7 @@
 							<% end %>
 						</div>
 						<div class="cp-social delete">
-							<%if user_signed_in? %>
+							<%if user_signed_in? && art1.user_id == current_user.id %>
 							<%=button_to article_path(art1), role: "button", class: "btn btn-danger",  method: :delete do  %>
 							unPin
 							<% end %>
@@ -46,7 +46,17 @@
 				</div><!-- /.cp-4 -->
 				<% end %>
 				<%else%>
-				Tekst mówiący o tym jak działa careerspin
+					<% if user_signed_in? && current_user.id = params[:id] %>
+					<h1>Jeżeli jesteś w stanie to zobaczyć oznacza, że patrzysz na swój wall, jesteś zalogowany i nie masz ani jednego postu w careerpin.
+					<ul>
+						<li></li>
+					</ul>
+
+
+
+
+
+					<% end %>
 				<% end %>
 				<script >
 				var transport = new easyXDM.transport.BestAvailableTransport({}, function(){

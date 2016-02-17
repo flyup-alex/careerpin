@@ -25,6 +25,7 @@
 </head>
 
 <body>
+  
     <%if user_signed_in? %>
     <div id="wrapper">
 
@@ -92,6 +93,24 @@
 
         <div id="page-wrapper">
     <div class = "container-fluid">
+
+<% if flash[:success] %>
+    <div class="alert alert-success alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
+      </button>
+      <strong><%= flash[:success] %></strong>
+    </div>
+
+  <% elsif flash[:danger] %>
+   <div class="alert alert-danger alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">x</span>
+      </button>
+      <strong> <%= flash[:danger] %> </strong>
+    </div>
+<% end %>
+
+
+
 
 <%= yield %>
   

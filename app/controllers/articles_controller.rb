@@ -13,8 +13,9 @@ include InstagramAppHelper
   def create
 
     @article = Article.new(super_params)
-    if @article.save
-      redirect_to article_path(current_user.id)
+    if @article.save 
+      flash[:success] = "Pin was successfuly added."
+      redirect_to :back
     else
       redirect to root_path
     end
@@ -49,6 +50,7 @@ include InstagramAppHelper
   def destroy
     article = Article.find(params[:id])
     article.destroy
+    flash[:danger] = "Pin was successfuly deleted."
     redirect_to article_path(current_user.id)
   end
 

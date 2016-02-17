@@ -41,7 +41,7 @@
 													<time><%= time_ago_in_words(hash['updated_time']) %> ago</time>
 												</div><!-- /.post-autor -->
 												<div class="post-pin">
-													<a href="">Pin</a>
+													
 		<%= form_for @article, :method => 'post' do |f| %>
       <%= f.hidden_field :text, :value => hash['message'] %>
       <%= f.hidden_field :time, :value => hash['updated_time'] %>
@@ -50,7 +50,7 @@
       <%= f.hidden_field :link, :value => "http://facebook.com/#{hash['id']}" %>
       <%= f.hidden_field :author, :value => hash['from']['name'] %>
       <%= f.hidden_field :user_id, :value => current_user.id %>
-      <%= f.submit "Zapisz post" %>
+      <%= f.submit  "Zapisz post"  %>
       <% end %>
 												</div><!-- /.post-pin -->
 											</header>

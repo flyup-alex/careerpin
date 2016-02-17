@@ -3,15 +3,10 @@ class WelcomeController < ApplicationController
 include FacebookAppHelper
 before_action :authenticate_user!
 
-  def index
-
-  	  
+  def index	  
   end
 
-  def logout
-  	
-  	
-  	
 
+  def logout
   end
 end

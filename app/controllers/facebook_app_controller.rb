@@ -38,7 +38,6 @@ before_action :authenticate_user!
   end
 
   def search
-    
     @ambasadors = current_user.ambasadors.all
     @graph = facebook_data(current_user)
     if params[:search].present? 
