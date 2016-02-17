@@ -5,4 +5,4 @@ Siemka!
   <%= f.submit "Create" %>
 <% end %>
 
-<%= image_tag(current_user.articles.last.photo.url )%>
+<%= image_tag(current_user.articles.last.photo.url ) if current_user.articles.last.photo.present?%>
