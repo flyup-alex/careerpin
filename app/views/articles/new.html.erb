@@ -2,7 +2,16 @@ Siemka!
 
 <%= form_for @article, :html => { :multipart => true }  do |f| %>
   <%= f.file_field :photo %>
+  <%= f.label :author %>
+  <%= f.text_field :author %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <%= f.label :text %>
+  <%= f.text_area :text %>
   <%= f.submit "Create" %>
+  <%= f.hidden_field :time, :value => Time.now %>
+  <%= f.hidden_field :provider, :value => "own" %>
+  <%= f.hidden_field :user_id, :value => current_user.id %>
 <% end %>
 
-<%= image_tag(current_user.articles.last.photo.url ) if current_user.articles.last.photo.present?%>
+<%= image_tag( Article.last.photo.url ) %>
