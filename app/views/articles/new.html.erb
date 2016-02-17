@@ -1,0 +1,8 @@
+Siemka!
+
+<%= form_for @article, :html => { :multipart => true }  do |f| %>
+  <%= f.file_field :photo %>
+  <%= f.submit "Create" %>
+<% end %>
+
+<%= image_tag(Article.last.photo.url )%>

@@ -2,6 +2,11 @@ class Article < ActiveRecord::Base
 
 belongs_to :user
 
+has_attached_file :photo
+
+validates_attachment_content_type :photo, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
+
+
 def self.create_careerpin_fb( data, current_user, provider)
 	  data.each do |info|
 	  article = Article.new	

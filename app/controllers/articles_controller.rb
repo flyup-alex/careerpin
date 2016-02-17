@@ -10,6 +10,12 @@ include InstagramAppHelper
     
   end
 
+  def new
+
+    @article = Article.new
+    
+  end
+
   def create
 
     @article = Article.new(super_params)
@@ -58,7 +64,7 @@ private
   
   def super_params
     
-    params.require(:article).permit(:title, :text, :time, :photo_url, :provider, :link, :author, :user_id)
+    params.require(:article).permit(:title, :text, :time, :photo_url, :provider, :link, :author, :user_id, :photo)
 
   end
   

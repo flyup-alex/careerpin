@@ -18,11 +18,14 @@ Rails.application.routes.draw do
 
   root to: "welcome#index"
 
-  get 'articles/:id', to: 'articles#index'
+
 
 
   resources :articles
+  get 'article/new', to: 'articles#new'
+
   # facebook actions routes: 
+
 
   post 'facebookfollowed', to: 'ambasadors#create'
 
