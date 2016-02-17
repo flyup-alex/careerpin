@@ -10,6 +10,17 @@ include InstagramAppHelper
     
   end
 
+  def create
+
+    @article = Article.new(super_params)
+    if @article.save
+      redirect_to article_path(current_user.id)
+    else
+      redirect to root_path
+    end
+    
+  end
+
   def create_fb
   	@feed = get_wall(current_user, params[:id])
   	Article.create_careerpin_fb(@feed, current_user, "facebook" )
@@ -40,4 +51,14 @@ include InstagramAppHelper
     article.destroy
     redirect_to article_path(current_user.id)
   end
+
+private
+  
+  def super_params
+    
+    params.require(:article).permit(:title, :text, :time, :photo_url, :provider, :link, :author, :user_id)
+
+  end
+  
+
 end

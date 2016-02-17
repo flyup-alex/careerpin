@@ -35,6 +35,8 @@ before_action :authenticate_user!
 
   def show
 
+    @article = Article.new
+    
     instagram_pass
 
     @instagram = Instagram.user_recent_media("#{params[:user_id]}", {:count => 40})

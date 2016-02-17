@@ -18,6 +18,18 @@
                           <time><%= time_ago_in_words (Time.at(insta['created_time'].to_i))   %></time>
                         </div><!-- /.post-autor -->
                         <div class="post-pin">
+
+      <%= form_for @article, :method => 'post' do |f| %>
+      <%= f.hidden_field :text, :value => "" %>
+      <%= f.hidden_field :time, :value => Time.at(insta['created_time'].to_i) %>
+      <%= f.hidden_field :photo_url, value: insta.images.standard_resolution.url %>
+      <%= f.hidden_field :provider, value: "instagram" %>
+      <%= f.hidden_field :link, :value => "http://instagram.com/#{insta.user.username}" %>
+      <%= f.hidden_field :author, :value => insta.user.username %>
+      <%= f.hidden_field :user_id, :value => current_user.id %>
+      <%= f.submit "Zapisz insta" %>
+      <% end %>
+
                           <a href="">Pin</a>
                         </div><!-- /.post-pin -->
                       </header>

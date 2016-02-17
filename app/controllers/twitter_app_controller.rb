@@ -32,6 +32,7 @@ def followed
 end
 
 def show
+	@article = Article.new
 	user_time = TwitterFriend.find_by( :friend_screen_name => "#{params[:screen_name]}")
 	user_time.friend_last_status = Date.today - 30
 	user_time.save

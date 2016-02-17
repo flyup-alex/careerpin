@@ -55,6 +55,7 @@ before_action :authenticate_user!
   end
 
   def show
+    @article = Article.new
     @graph = facebook_data(current_user)
     @ambasadors = current_user.ambasadors.all
     @ambasador = Ambasador.new

@@ -21,6 +21,20 @@
 													<time><%= time_ago_in_words(tweet.created_at) %> ago</time>
 												</div><!-- /.post-autor -->
 												<div class="post-pin">
+
+
+
+      <%= form_for @article, :method => 'post' do |f| %>
+      <%= f.hidden_field :text, :value => tweet.text %>
+      <%= f.hidden_field :time, :value => tweet.created_at %>
+      <%= f.hidden_field :photo_url, value: tweet.media[0]["media_url"], :size => tweet.media[0]["sizes"]["thumb"] if tweet.media.present? %>
+      <%= f.hidden_field :provider, value: "twitter" %>
+      <%= f.hidden_field :link, :value => tweet.uri %>
+      <%= f.hidden_field :author, :value => tweet.user.name %>
+      <%= f.hidden_field :user_id, :value => current_user.id %>
+      <%= f.submit "Zapisz tweet" %>
+      <% end %>
+
 													<%= link_to "Pin", root_path %>												</div><!-- /.post-pin -->
 											</header>
 											<div class="post-image">

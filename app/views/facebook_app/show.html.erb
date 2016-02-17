@@ -42,6 +42,16 @@
 												</div><!-- /.post-autor -->
 												<div class="post-pin">
 													<a href="">Pin</a>
+		<%= form_for @article, :method => 'post' do |f| %>
+      <%= f.hidden_field :text, :value => hash['message'] %>
+      <%= f.hidden_field :time, :value => hash['updated_time'] %>
+      <%= f.hidden_field :photo_url, value: hash['full_picture'] if hash['full_picture'].present? %>
+      <%= f.hidden_field :provider, value: "facebook" %>
+      <%= f.hidden_field :link, :value => "http://facebook.com/#{hash['id']}" %>
+      <%= f.hidden_field :author, :value => hash['from']['name'] %>
+      <%= f.hidden_field :user_id, :value => current_user.id %>
+      <%= f.submit "Zapisz post" %>
+      <% end %>
 												</div><!-- /.post-pin -->
 											</header>
 											<div class="post-image">
