@@ -1,6 +1,6 @@
 <div id="page-wrapper" class="article">
 
-
+          <%if user_signed_in? && @article.user_id == current_user.id %>
             <footer class="col-sm-4 col-sm-offset-4 post-preview-buttons">
                  <%=button_to edit_article_path(@article), role: "button", class: "btn btn-success",  method: :get do  %>
               Edit
@@ -11,9 +11,14 @@
               <% end %>
          <%=button_to article_path(current_user.id), role: "button", class: "btn btn-success",  method: :get do  %>
               Career-Pin
-              <% end %>
-              
+              <% end %>  
             </footer>
+            <% else %>
+            <%=button_to :back, role: "button", class: "btn btn-success",  method: :get do  %>
+              Career-Pin
+              <% end %>  
+
+             <% end %>
         <div class="container-fluid">
               
           <div class="row">

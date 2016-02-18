@@ -6,7 +6,8 @@
 
 				<% @articles.each do |art1|%>
 				<div class="cp-2">
-					<%= link_to art1.link, target: "blank" do %>
+				<% if art1.provider == "own" %>
+					<%= link_to art1.link, target: "new" do %>
 						<div class="cp-image">
 							<% if art1.photo_url.nil? && art1.provider == "twitter" %>
 							<%= image_tag("https://s.graphiq.com/sites/default/files/2307/media/images/Twitter_Blue_1409382.png")%>
@@ -26,10 +27,11 @@
 							unPin
 							<% end %>
 							<% if art1.provider == "own" %>
-							<%=button_to edit_article_path(art1), role: "button", class: "btn btn-success",  method: :get do  %>
-              				Edit
+								<%=button_to edit_article_path(art1), role: "button", class: "btn btn-success",  method: :get do  %>
+	              				Edit
+	              				<% end %>
              			    <% end %>
-             			    <% end %>
+
 							<% end %>
 							<% if art1.provider == "facebook" %>
 							<i class="fa fa-facebook"></i>
@@ -50,7 +52,58 @@
 							<% end %>
 							<time><%= time_ago_in_words(art1.time)+ " ago"%></time>
 						</div>
+
 					<% end %>
+				<% else %>
+					<%= link_to art1.link, target: "blank" do %>
+						<div class="cp-image">
+							<% if art1.photo_url.nil? && art1.provider == "twitter" %>
+							<%= image_tag("https://s.graphiq.com/sites/default/files/2307/media/images/Twitter_Blue_1409382.png")%>
+							<% end %>
+							<% if art1.photo_url.nil? && art1.provider == "own" %>
+							<%= image_tag(art1.photo.url, class: "myBackgroundImage" )%>
+							<% end %>
+							<% if art1.photo_url.nil? && art1.provider == "facebook" %>
+							<%= image_tag("https://s.graphiq.com/sites/default/files/2307/media/images/Facebook_Blue_1409375.png")%>
+							<% else %>
+							<%= image_tag(art1.photo_url, class: "myBackgroundImage" )%>
+							<% end %>
+						</div>
+						<div class="cp-social delete">
+							<%if user_signed_in? && art1.user_id == current_user.id %>
+							<%=button_to article_path(art1), role: "button", class: "btn btn-danger",  method: :delete do  %>
+							unPin
+							<% end %>
+							<% if art1.provider == "own" %>
+								<%=button_to edit_article_path(art1), role: "button", class: "btn btn-success",  method: :get do  %>
+	              				Edit
+	              				<% end %>
+             			    <% end %>
+
+							<% end %>
+							<% if art1.provider == "facebook" %>
+							<i class="fa fa-facebook"></i>
+							<% end %>
+							<% if art1.provider == "twitter" %>
+							<i class="fa fa-twitter"></i>
+							<% end %>
+							<% if art1.provider == "instagram" %>
+							<i class="fa fa-instagram"></i>
+							<% end %>
+						</div>
+						<div class="cp-text">
+							<% if art1.provider == "instagram" %>
+							<% else %>
+							<p>
+							<%= art1.text %>
+							</p>
+							<% end %>
+							<time><%= time_ago_in_words(art1.time)+ " ago"%></time>
+						</div>
+
+					<% end %>
+
+				<% end %>
 				</div><!-- /.cp-4 -->
 				<% end %>
 				<%else%>

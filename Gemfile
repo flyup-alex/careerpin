@@ -46,6 +46,8 @@ gem 'twitter'
 gem 'instagram'
 
 gem "paperclip"
+
+gem 'jquery-turbolinks'
 # Use Unicorn as the app server
 # gem 'unicorn'
 

@@ -50,11 +50,11 @@ before_action :authenticate_user!, only: [:new, :create, :create_inst, :create_f
       if @article.provider == "own"
       @article.link = "/own_article/#{@article.id}"
       @article.save
-      flash[:success] = "Pin was successfuly added."
+      flash[:success] = "Pin został pomyślnie dodany do Career-Pin."
       redirect_to own_article_path(@article)
 
       else
-      flash[:success] = "Pin was successfuly added."
+      flash[:success] = "Pin został pomyślnie dodany do Career-Pin."
       redirect_to article_path(current_user.id)
     end
     else
@@ -91,7 +91,7 @@ before_action :authenticate_user!, only: [:new, :create, :create_inst, :create_f
   def destroy
     article = Article.find(params[:id])
     article.destroy
-    flash[:danger] = "Pin was successfuly deleted."
+    flash[:danger] = "Pin został pomyślnie usunięty z Career-Pin."
     redirect_to article_path(current_user.id )
   end
 
