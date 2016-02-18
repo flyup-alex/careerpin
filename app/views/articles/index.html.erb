@@ -1,13 +1,24 @@
 
 		<div id="page-wrapper">
 
+<% if user_signed_in? && current_user.id = params[:id] %>
+
+awdada
+ 
+<% end %>
 			<div class="career-pin-conatiner">
+
+
+
 <% if @articles.present? %>
+
+
+
 
 				<% @articles.each do |art1|%>
 				<div class="cp-2">
 				<% if art1.provider == "own" %>
-					<%= link_to art1.link, target: "new" do %>
+					<%= link_to art1.link do %>
 						<div class="cp-image">
 							<% if art1.photo_url.nil? && art1.provider == "twitter" %>
 							<%= image_tag("https://s.graphiq.com/sites/default/files/2307/media/images/Twitter_Blue_1409382.png")%>
