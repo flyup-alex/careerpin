@@ -25,6 +25,11 @@
 							<%=button_to article_path(art1), role: "button", class: "btn btn-danger",  method: :delete do  %>
 							unPin
 							<% end %>
+							<% if art1.provider == "own" %>
+							<%=button_to edit_article_path(art1), role: "button", class: "btn btn-success",  method: :get do  %>
+              				Edit
+             			    <% end %>
+             			    <% end %>
 							<% end %>
 							<% if art1.provider == "facebook" %>
 							<i class="fa fa-facebook"></i>

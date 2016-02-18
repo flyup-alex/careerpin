@@ -24,6 +24,25 @@ before_action :authenticate_user!, only: [:new, :create, :create_inst, :create_f
     
   end
 
+  def edit
+
+    @article = Article.find(params[:id])
+  end
+
+  def update
+
+    @article = Article.find(params[:id])
+    if @article.update(super_params)
+      flash[:success] = "Pomyślnie zaktualizowano Pin."
+      redirect_to own_article_path(@article)
+    else
+      flash[:success] = "Coś poszło nie tak. Spróbuj ponownie. Ładnie dzisiaj wyglądasz :)"
+      redirect_to root_path
+    end
+
+    
+  end
+
   def create
 
     @article = Article.new(super_params)

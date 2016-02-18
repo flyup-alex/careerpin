@@ -1,92 +1,55 @@
-
-<%= form_for @article, :html => { :multipart => true }  do |f| %>
-  <%= f.file_field :photo %>
-  <%= f.label :author %>
-  <%= f.text_field :author %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-  <%= f.label :text %>
-  <%= f.text_area :text %>
-  <%= f.submit "Create" %>
-  <%= f.hidden_field :time, :value => Time.now %>
-  <%= f.hidden_field :provider, :value => "own" %>
-  <%= f.hidden_field :user_id, :value => current_user.id %>
-<% end %>
+<div id="page-wrapper" class="article">
 
 
-<div id="page-wrapper">
+            <footer class="col-sm-4 col-sm-offset-4 post-preview-buttons">
+                 <%=button_to edit_article_path(@article), role: "button", class: "btn btn-success",  method: :get do  %>
+              Edit
+              <% end %>
 
+        <%=button_to article_path(@article), role: "button", class: "btn btn-danger",  method: :delete do  %>
+              Delete
+              <% end %>
+         <%=button_to article_path(current_user.id), role: "button", class: "btn btn-success",  method: :get do  %>
+              Career-Pin
+              <% end %>
+              
+            </footer>
         <div class="container-fluid">
               
           <div class="row">
+            
+            <article class="col-sm-10 col-sm-offset-1 post-preview">
+                   <%= image_tag (@article.photo.url )%>
+              <div class="post-image-preview">
+
+                <h1 class="post-title-preview"><%= @article.title%></h1>
+              </div><!-- /.post-image-preview -->
+
+            
+              <div class="post-text-preview">
+                  <p class="lead"><%= @article.text %></p>
+                </div><!-- /.post-text-preview -->
+                
+                <div class="post-autor-preview">
+                
+
+                  <div class="post-autor-information-preview">
+                    <span><%= @article.author %></span>
+                    <time><%= "#{time_ago_in_words( @article.updated_at )} ago" %></time>
+                  </div>
+                  
+                </div><!-- /.post-autor-preview -->
+                
+              </div><!-- /.search-autor -->
               
-                <header class="col-sm-4 col-sm-offset-4 text-center">
-                  <h1>Kafelkowe informacje</h1>
-                  <p class="lead">Cover image, autor, title</p>
-                </header>
+            </article><!-- /.col-sm-10 col-sm-offset-1 .post-preview -->
+              
 
-                  <div class="col-md-6 col-md-offset-3">
-
-                    <form class="form-inline">
-                      <div class="form-group">
-                        <label for="formAuthor">Autor</label>
-                        <input type="text" id="formAuthor" class="form-control">
-                      </div>
-                    </form>
-                    <form class="form-inline">
-                      <div class="form-group">
-                        <label>Title</label>
-                        <textarea class="form-control" rows="1"></textarea>
-                      </div>
-                    </form>
-                    <div class="article-butons">
-                      <form>
-                        <div class="form-group">
-                          <input type="file" name="file" id="formCoverImage" class="inputfile" data-multiple-caption="{count} files selected" multiple>
-                          <label for="formCoverImage"><i class="fa fa-cloud-upload"></i> <span>Choose cover image&hellip;</span></label>
-                        </div>
-                      </form>
-                      <form>
-                        <div class="form-group">
-                          <input type="file" name="file" id="formAutorImage" class="inputfile" data-multiple-caption="{count} files selected" multiple>
-                          <label for="formAutorImage"><i class="fa fa-cloud-upload"></i> <span>Choose a file&hellip;</span></label>
-                          
-                        </div>
-                      </form>
-                    </div>
-
-                  </div>
-                  <div class="col-md-6 col-md-offset-3">
-                    <div class="text-center">
-                      
-                    </div>
-                  </div>
               
           </div><!-- /.row -->
-          
-          <div class="row">
-              
-            <form>
-              <textarea id="editor1" name="editor1" id="editor1" rows="10" cols="80">
-                  Place Your article here.
-              </textarea>
-              <script>
-                  // Replace the <textarea id="editor1"> with a CKEditor
-                  // instance, using default configuration.
-                  CKEDITOR.replace( 'editor1' );
-              </script>
-            </form>
-            
-            <br>
-            
-            <div class="col-md-6 col-md-offset-3">
-              <div class="text-center">
-                <a href="" class="btn btn-default">Next</a>
-              </div>
-            </div>
-
-          </div><!-- /.row --> 
 
         </div><!-- /.container-fluid -->
 
       </div><!-- /#page-wrapper -->
+
+
