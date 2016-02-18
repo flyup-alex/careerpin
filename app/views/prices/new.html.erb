@@ -1,6 +1,9 @@
-<%= form_for @price do |f|%>
-<%= f.label :account %>
-<%= radio_button_tag(:account, "Standard") %>
-<%= radio_button_tag(:account, "Premium") %>
-<%= f.submit "Wybierz plan" %>
+
+
+
+<%= form_for(@price) do |f| %>
+  <p><%= f.radio_button(:account, 'Premium', :checked => true) %> To jest konto Premium</p>
+  <%= f.radio_button(:account, 'Standard') %></p>
+  <p><%= f.hidden_field(:user_id, :value => current_user.id)%>
+  <%= f.submit "Wybierz"%>
 <% end %>

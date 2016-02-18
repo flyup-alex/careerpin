@@ -27,6 +27,7 @@
 <body>
   
     <%if user_signed_in? %>
+    <% if !current_user.price.nil? %>
     <div id="wrapper">
 
 
@@ -82,11 +83,13 @@
                         <i class="fa fa-instagram"></i> 
                         <% end %>
                     </li> -->
+                    <% if current_user.price.account == "Premium" %>
                     <li>
                         <%= link_to '/article/new' do %>
                         <i class="fa  fa-pencil-square-o"></i> 
                         <% end %>
                     </li>
+                    <% end %>
                     <li>
                        <%= link_to article_path(current_user.id) do %>
                        <i class="fa fa-th-large"></i></a>
@@ -116,7 +119,7 @@
 <% end %>
 
 
-
+<% end %>
 
 <%= yield %>
   
