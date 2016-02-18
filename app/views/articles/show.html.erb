@@ -1,9 +1,14 @@
+<% if !user_signed_in? %>
+<div id="page-wrapper"class="article alt">
+<% else %>
+<div id= "page-wrapper" class="article" >
+<% end %>
+     <header class="col-sm-4 col-sm-offset-4 post-preview-buttons">
+               <%if user_signed_in? && @article.user_id == current_user.id %>
+            <%=button_to article_path(current_user.id), role: "button", class: "btn btn-success",  method: :get do  %>
+              Career-Pin
+              <% end %>  
 
-
-<div id="page-wrapper" class="article">
-
-          <%if user_signed_in? && @article.user_id == current_user.id %>
-            <footer class="col-sm-4 col-sm-offset-4 post-preview-buttons">
                  <%=button_to edit_article_path(@article), role: "button", class: "btn btn-success",  method: :get do  %>
               Edit
               <% end %>
@@ -11,30 +16,30 @@
         <%=button_to article_path(@article), role: "button", class: "btn btn-danger",  method: :delete do  %>
               Delete
               <% end %>
-         <%=button_to article_path(current_user.id), role: "button", class: "btn btn-success",  method: :get do  %>
-              Career-Pin
-              <% end %>  
-            </footer>
-            <% else %>
-            <%=button_to :back, role: "button", class: "btn btn-success",  method: :get do  %>
-              Career-Pin
-              <% end %>  
 
-             <% end %>
+
+             <% end %>           
+     </header>
+       
         <div class="container-fluid">
               
           <div class="row">
             
             <article class="col-sm-10 col-sm-offset-1 post-preview">
-                   <%= image_tag (@article.photo.url )%>
+                   
               <div class="post-image-preview">
-
-                <h1 class="post-title-preview"><%= @article.title%></h1>
+       <%= image_tag @article.photo.url, class: "myBackgroundImage" %>
+               <div class="post-title-preview">
+         <h1><%= @article.title%></h1>
+        </div>
               </div><!-- /.post-image-preview -->
+              
 
             
               <div class="post-text-preview">
+
                   <p class="lead"><%= @article.text %></p>
+                  
                 </div><!-- /.post-text-preview -->
                 
                 <div class="post-autor-preview">
@@ -50,13 +55,16 @@
               </div><!-- /.search-autor -->
               
             </article><!-- /.col-sm-10 col-sm-offset-1 .post-preview -->
-              
-
-              
-          </div><!-- /.row -->
 
         </div><!-- /.container-fluid -->
+         <footer class="col-sm-4 col-sm-offset-4 post-preview-buttons">
+        <% if !user_signed_in? %>
+
+            <%=button_to :back, role: "button", class: "btn btn-success btn-lg",  method: :get do  %>
+              Wróć do Career-Pin
+        
+            <% end %>  
+        <% end %>
+         </footer>
 
       </div><!-- /#page-wrapper -->
-
-
