@@ -22,7 +22,7 @@
                 <div class="profile-name">
                   <span class="text-center"><%= friend.friend_name %></span>
                 </div>
-                             <% if friend.friend_last_status.nil? %>
+              <% if friend.friend_last_status.nil? %>
               <% else %>
               <% c = friend.friend_last_status.to_time %>
               <% b = current_user.last_sign_in_at.to_time %>

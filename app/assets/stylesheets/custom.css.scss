@@ -134,18 +134,22 @@ img {
 }
 
 /* ============================
-		Followed peopole and else 
+  Followed peopole and else 
 ============================ */
 
 .center {
-	display: -webkit-box;
-	display: -webkit-flex;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-pack: center;
-	-webkit-justify-content: center;
-	-ms-flex-pack: center;
-	justify-content: center;
+ display: -webkit-box;
+ display: -webkit-flex;
+ display: -ms-flexbox;
+ display: flex;
+ -webkit-justify-content: space-around;
+ -ms-flex-pack: distribute;
+ justify-content: space-around;
+ margin-bottom: 40px;
+}
+
+.fa.fa-star-o {
+ padding-right: 7px;
 }
 
 .brand-ambasadors {
@@ -342,9 +346,10 @@ img {
 	height: 100%;
 }
 
+
 /* === PIN === */
 
-.post-pin {
+input[value="Pin"] {
 	height: 4.375rem;
 	width: 4.375rem;
 	position: absolute;
@@ -353,6 +358,7 @@ img {
 	border: none;
 	border-radius: 100%;
 	background: #00B55D;
+	opacity: 0.7;
 	text-align: center;
 	display: -webkit-box;
 	display: -webkit-flex;
@@ -366,16 +372,18 @@ img {
 	-webkit-align-items: center;
 	-ms-flex-align: center;
 	align-items: center;
-}
-
-.post-pin a {
 	color: white;
 	font-size: 1.25rem;
+}
+
+input[value="Pin"]:hover {
+	opacity: 1;
 }
 
 .post-main-text {
 	padding: 2rem 1rem 1rem;
 }
+
 
 /* =======================
 		Search
@@ -807,6 +815,11 @@ html {
 	flex-wrap: wrap;
 }
 
+.social {
+	padding: 0 35px;
+
+}
+
 .career-pin-conatiner a {
 	color: #fff;
 }
@@ -928,7 +941,7 @@ html {
 	align-self: flex-end;
 	box-sizing: content-box;
 	display: block;
-	width: 80px;
+	min-width: 80px;
 	font-style: italic;
 	color: rgba(0,0,0,0.7);
 	font-weight: 400;

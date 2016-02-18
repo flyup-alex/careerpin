@@ -1,8 +1,10 @@
-<%= link_to "Spróbuj career-pin", twitterpin_path(:profile_name => @last_tweets.first.user.screen_name), class: "btn btn-success center"%>
 
 
-<br>
    <div id="page-wrapper">
+
+   	<div class="center">
+		<%= link_to "Spróbuj career-pin", twitterpin_path(:profile_name => @last_tweets.first.user.screen_name), class: "btn btn-success btn-lg"%>
+	</div>
 
             <div class="container-fluid">
 							
@@ -20,8 +22,6 @@
 													<br>
 													<time><%= time_ago_in_words(tweet.created_at) %> ago</time>
 												</div><!-- /.post-autor -->
-												<div class="post-pin">
-
 	<% if current_user.articles.any? %>
 
       <%= form_for @article, :method => 'post' do |f| %>
@@ -32,12 +32,11 @@
       <%= f.hidden_field :link, :value => tweet.uri %>
       <%= f.hidden_field :author, :value => tweet.user.name %>
       <%= f.hidden_field :user_id, :value => current_user.id %>
-      <%= f.submit "Zapisz tweet" %>
+      <%= f.submit "Pin" %>
       <% end %>
 
       <% end %>
 
-													<%= link_to "Pin", root_path %>												</div><!-- /.post-pin -->
 											</header>
 											<div class="post-image">
 												<%= image_tag(tweet.media[0]["media_url"], :size => tweet.media[0]["sizes"]["thumb"]) if(tweet.media.present?)%>

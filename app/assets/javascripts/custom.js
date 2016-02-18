@@ -11,7 +11,7 @@ $(document).ready(function(){
 	
 	
 	// check if p has more than 140 characters and leaves only 140
-	$( "p" ).each(function() {
+	$( ".cp-text p" ).each(function() {
 		if($(this).text().length > 90){
 			var str = $(this).text(),
 					res = str.substring(0, 89);

@@ -4,20 +4,23 @@
 
 
 		<div id="page-wrapper">
-<h1 class="text-center">Tekst zachęcający do wykorzystania career-pin</h1>
+<h1 class="text-center">Awansuj swoją zakładkę Kariera</h1>
        <div class="jumbotron">
         <div class="container">
-         <h4  class="lead">
-         	<p>Poniżej znajduje się kod do Twojego Career-Pin. Możesz go wkleić w dowolne miejsce na swojej stronie internetowej. Career-Pin dostosuje swoje wymiary, aby zapewnić jak najlepsze doznania dla Twoich użytkowników.</p> 
+         <h5>
+         	Poniżej znajduje się kod do Twojego Career-Pin. Możesz go wkleić w dowolne miejsce na swojej stronie internetowej. Career-Pin dostosuje swoje wymiary, aby zapewnić jak najlepsze doznania dla Twoich użytkowników. 
+         </h5>
          	<br>
-         	<center>
+         	<br>
+         	<center><h4>
          	&lt;iframe width = 100%, height = 3100px, frameborder = 0, src="https://careerpin.herokuapp.com/articles/<%= current_user.id %> &gt;&lt;/iframe&gt;
-         	</center>
+         	</h4></center>
          	<br>
-			<p>Po prostu skopiuj powyższy kod i wklej w swojej zakładce kariera.</p>
+         	<br>
+			<h5>Po prostu skopiuj powyższy kod i wklej w swojej zakładce kariera. </h5>
          	
 
-         </h4>
+        
         </div>
        </div>
 
@@ -138,21 +141,17 @@
           <div class= "jumbotron"><p>Career-Pin pozwala pokazać Twoim kandydatom prawdziwą atmosferę pracy. Pokazuje Twoją firmę jako część życia, zastrzyk pozytywnych emocji, niesamowite przygody czy wspaniałą grupę ludzi. Co wspaniałego chcesz dzisiaj pokazać?</p>
           </div>
           <center>Zacznij z:</center>
-          <h1>
-          <div class="center">
+          <h1 class="text-center">
           <%= link_to '/auth/facebook' do %>
-                    <i class="fa fa-facebook-official"></i>
+                    <i class="fa fa-facebook-official social"></i>
                     <% end %>
                     <%= link_to '/twitterlogin' do %>
-                    <i class="fa fa-twitter"></i>
+                    <i class="fa fa-twitter social"></i>
                     <% end %>
                     <!-- <%= link_to '/instagramlogin' do %>
                     <i class="fa fa-instagram"></i> 
                     <% end %> -->
-                  <h1>
-
-					</div>
-					</h1>
+		 </h1>
 
 					<% end %>
 				<% end %>

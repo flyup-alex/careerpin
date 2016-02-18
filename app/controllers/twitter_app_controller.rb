@@ -27,7 +27,7 @@ end
 def followed
 	
 
-	@friends = TwitterFriend.all	
+	@friends = TwitterFriend.where(user_id: current_user.id)	
 
 end
 

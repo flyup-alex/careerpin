@@ -1,7 +1,8 @@
 
 
+    <div class="center">
  		<% if current_user.ambasadors.where(object_id: @feed.first['from']['id']).exists? %>
- 		<%= button_to ambasadors_delete_path(@ambasadors.where(:name => @feed.first['from']['name'] ).first ), class: "button add-brand-ambasador",  method: :delete  do %>
+ 		<%= button_to ambasadors_delete_path(@ambasadors.where(:name => @feed.first['from']['name'] ).first ), class: "btn btn-success btn-lg",  method: :delete  do %>
  			<i class="fa fa-star-o"></i><span>Przestań obserwować</span>
  			<% end %>
 
@@ -13,17 +14,17 @@
 		<%= f.hidden_field :object_id, :value => @feed.first['from']['id']%>
 		<%= f.hidden_field :user_id, :value => current_user.id %>
 		<%= f.hidden_field :name, :value => @feed.first['from']['name'] %>
-		<%= button_to 'ambasadors#create', class: "button add-brand-ambasador", method: :post do %>
+		<%= button_to 'ambasadors#create', class: "btn btn-success btn-lg", method: :post do %>
 		<i class="fa fa-star-o"></i><span>Dodaj do obserwowanych</span>
 		<% end %>
 
 		<% end %>
 		<% end %>
-<br>
-<br>
 
-<%= link_to "Spróbuj career-pin", facebookpin_path(:id => @feed.first['from']['id'] ), class: "btn btn-success center"%> 	
-<br>
+
+<%= link_to "Spróbuj career-pin", facebookpin_path(:id => @feed.first['from']['id'] ), class: "btn btn-success btn-lg"%> 	
+    </div><!-- /.center -->
+
             <div class="container-fluid">
 							
 							<div class="row" id="primary">
@@ -40,8 +41,6 @@
 													<br>
 													<time><%= time_ago_in_words(hash['updated_time']) %> ago</time>
 												</div><!-- /.post-autor -->
-												<div class="post-pin">
-
 												<% if current_user.articles.any? %>
 													
 		<%= form_for @article, :method => 'post' do |f| %>
@@ -52,10 +51,9 @@
       <%= f.hidden_field :link, :value => "http://facebook.com/#{hash['id']}" %>
       <%= f.hidden_field :author, :value => hash['from']['name'] %>
       <%= f.hidden_field :user_id, :value => current_user.id %>
-      <%= f.submit  "Zapisz post"  %>
+      <%= f.submit  "Pin"  %>
       <% end %>
-      <% end %>
-												</div><!-- /.post-pin -->
+      										<% end %>
 											</header>
 											<div class="post-image">
 												<%= image_tag(hash['full_picture']) %>
