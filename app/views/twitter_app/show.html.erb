@@ -22,7 +22,7 @@
 												</div><!-- /.post-autor -->
 												<div class="post-pin">
 
-
+	<% if current_user.articles.any? %>
 
       <%= form_for @article, :method => 'post' do |f| %>
       <%= f.hidden_field :text, :value => tweet.text %>
@@ -33,6 +33,8 @@
       <%= f.hidden_field :author, :value => tweet.user.name %>
       <%= f.hidden_field :user_id, :value => current_user.id %>
       <%= f.submit "Zapisz tweet" %>
+      <% end %>
+
       <% end %>
 
 													<%= link_to "Pin", root_path %>												</div><!-- /.post-pin -->

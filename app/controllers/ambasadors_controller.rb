@@ -42,8 +42,11 @@ class AmbasadorsController < ApplicationController
   def destroy
     @ambasador = Ambasador.find(params[:format])
     @ambasador.destroy
+    if current_user.ambasadors.any?
+    redirect_to facebookfollowed_path
+    else
     redirect_to facebook_search_path
-    
+    end    
   end
     
 
