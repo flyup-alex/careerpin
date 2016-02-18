@@ -17,7 +17,9 @@
 //= require custom.js
 //= require default.js
 //= require bootstrap
+
 //= require jquery.turbolinks
 //= require_tree .
 //= require jquery.cover.js
+//= require jquery.fullpage.js
 
