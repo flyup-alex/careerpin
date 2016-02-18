@@ -32,8 +32,12 @@
   </div>
 <% end %>
 
-<h3>Cancel my account</h3>
+<h3>Moje płatności<h3>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+  <p>Aktualnie posiadasz plan <%= "#{current_user.price.type}" if current_user.price.present? %>. W celu zmiany prosimy o kontakt: tutaj dane kontaktowe i taki mail ma być zawsze, że jak w niego kliknę, to od razu mi się klient poczty otwiera.</p>
+
+<h3>Usuń konto</h3>
+
+<p>Niezadowolony? Skontaktuj się z nami: +48 796 798 700, wyślij nam maila: a.nowak@career-pin.com. Jeżeli jest coś o czym powinniśmy wiedzieć daj nam znać! Usunięcie konta jest równoważne z zakończeniem subskrypcji Career-Pin ze skutkiem natychmiastowym. <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Jesteś pewny? Zastanów się nad tym. Prześpij się z tym, zjedz czekoladę." }, method: :delete %></p>
 
 <%= link_to "Back", :back %>

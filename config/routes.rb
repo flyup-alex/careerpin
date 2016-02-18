@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   
+  get 'price/create'
+
+  get 'price/new'
+
   get 'articles/:id', to: 'articles#index'
 
   get 'articles/create'
@@ -14,7 +18,7 @@ Rails.application.routes.draw do
 
   get 'instagram_app/create'
 
-  devise_for :users, controllers: { sessions: 'mysessions' }
+  devise_for :users, controllers: { sessions: 'mysessions', :registrations => "registrations"}
 
   root to: "welcome#index"
 
@@ -76,6 +80,12 @@ Rails.application.routes.draw do
   # Ambasadors action routes: 
   
   resources :ambasadors
+
+  # Price action routes: 
+
+  get 'select_pricing', to: 'prices#new'
+
+  resources :prices
 
 
   # The priority is based upon order of creation: first created -> highest priority.

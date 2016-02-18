@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
 	has_many :ambasadors
 	has_many :twitter_friends
 	has_many :articles
+	has_one :price
 
 	
 	

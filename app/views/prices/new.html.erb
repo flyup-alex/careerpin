@@ -1,0 +1,6 @@
+<%= form_for @price do |f|%>
+<%= f.label :account %>
+<%= radio_button_tag(:account, "Standard") %>
+<%= radio_button_tag(:account, "Premium") %>
+<%= f.submit "Wybierz plan" %>
+<% end %>

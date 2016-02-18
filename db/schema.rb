@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160217163532) do
+ActiveRecord::Schema.define(version: 20160218185317) do
 
   create_table "ambasadors", force: :cascade do |t|
     t.string   "provider"
@@ -38,6 +38,13 @@ ActiveRecord::Schema.define(version: 20160217163532) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
+  end
+
+  create_table "prices", force: :cascade do |t|
+    t.string   "account"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "providers", force: :cascade do |t|
