@@ -4,9 +4,17 @@ include FacebookAppHelper
 include TwitterAppHelper
 include InstagramAppHelper
 
+before_action :authenticate_user!, only: [:new, :create, :create_inst, :create_fb, :create_twt]
+
   def index
 
     @articles = Article.where(:user_id => params[:id]).limit(20).order(time: :desc)
+    
+  end
+
+  def show
+
+    @article = Article.find(params[:id])
     
   end
 
@@ -20,8 +28,16 @@ include InstagramAppHelper
 
     @article = Article.new(super_params)
     if @article.save 
+      if @article.provider == "own"
+      @article.link = "/own_article/#{@article.id}"
+      @article.save
       flash[:success] = "Pin was successfuly added."
-      redirect_to :back
+      redirect_to own_article_path(@article)
+
+      else
+      flash[:success] = "Pin was successfuly added."
+      redirect_to article_path(current_user.id)
+    end
     else
       redirect to root_path
     end
@@ -57,7 +73,7 @@ include InstagramAppHelper
     article = Article.find(params[:id])
     article.destroy
     flash[:danger] = "Pin was successfuly deleted."
-    redirect_to article_path(current_user.id)
+    redirect_to article_path(current_user.id )
   end
 
 private

@@ -22,8 +22,11 @@ Rails.application.routes.draw do
 
 
   resources :articles
+
   get 'article/new', to: 'articles#new'
 
+
+  get 'own_article/:id', to: 'articles#show', :as => :own_article
   # facebook actions routes: 
 
 

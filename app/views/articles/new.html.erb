@@ -1,17 +1,84 @@
 Siemka!
 
-<%= form_for @article, :html => { :multipart => true }  do |f| %>
-  <%= f.file_field :photo %>
-  <%= f.label :author %>
-  <%= f.text_field :author %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-  <%= f.label :text %>
-  <%= f.text_area :text %>
-  <%= f.submit "Create" %>
-  <%= f.hidden_field :time, :value => Time.now %>
-  <%= f.hidden_field :provider, :value => "own" %>
-  <%= f.hidden_field :user_id, :value => current_user.id %>
-<% end %>
+
 
 <%= image_tag( Article.last.photo.url ) %>
+
+
+<div id="page-wrapper">
+
+				<div class="container-fluid">
+							
+					<div class="row">
+  						
+								<header class="col-sm-4 col-sm-offset-4 text-center">
+									<h1>Kafelkowe informacje</h1>
+									<p class="lead">Cover image, autor, title</p>
+								</header>
+
+									<div class="col-md-6 col-md-offset-3">
+
+
+  
+
+
+
+
+
+<%= form_for @article, :html => { :multipart => true }  do |f| %>
+
+											<div class="form-group">
+											  <%= f.label :author %>
+											  <%= f.text_field :author %>
+											</div>
+
+
+											<div class="form-group">
+											  <%= f.label :title %>
+											  <%= f.text_field :title %>
+											</div>
+
+											<div class="form-group">
+											  <%= f.label "Taki sobie tekst" %>
+  											  <%= f.text_area :text %>
+  											</div>
+										<div class="article-butons">
+
+												<div class="form-group">
+													<input type="file" name="file" id="formAutorImage" class="inputfile" data-multiple-caption="{count} files selected" multiple>
+														<%= f.file_field :photo %>
+													  <%= f.hidden_field :time, :value => Time.now %>
+													  <%= f.hidden_field :provider, :value => "own" %>
+													  <%= f.hidden_field :user_id, :value => current_user.id %>
+													   <%= f.submit "Create" %>
+<% end %>
+												</div>
+
+										</div>
+
+									</div>
+									<div class="col-md-6 col-md-offset-3">
+										<div class="text-center">
+											
+										</div>
+									</div>
+							
+					</div><!-- /.row -->
+				
+					<div class="row">
+							
+
+						
+						<br>
+						
+						<div class="col-md-6 col-md-offset-3">
+							<div class="text-center">
+								 
+							</div>
+						</div>
+	
+					</div><!-- /.row --> 
+
+				</div><!-- /.container-fluid -->
+
+			</div><!-- /#page-wrapper -->

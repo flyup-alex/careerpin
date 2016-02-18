@@ -11,6 +11,9 @@
 							<% if art1.photo_url.nil? && art1.provider == "twitter" %>
 							<%= image_tag("https://s.graphiq.com/sites/default/files/2307/media/images/Twitter_Blue_1409382.png")%>
 							<% end %>
+							<% if art1.photo_url.nil? && art1.provider == "own" %>
+							<%= image_tag(art1.photo.url, class: "myBackgroundImage" )%>
+							<% end %>
 							<% if art1.photo_url.nil? && art1.provider == "facebook" %>
 							<%= image_tag("https://s.graphiq.com/sites/default/files/2307/media/images/Facebook_Blue_1409375.png")%>
 							<% else %>
