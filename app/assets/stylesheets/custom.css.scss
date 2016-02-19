@@ -1951,10 +1951,12 @@ a:hover .cp-social i {
 	}
 }
 
-#navbar-inline {
+/* #navbar-inline {
   
   float: left !important;
 }
+ */
+
 
 #navbar-inline {
 
@@ -1967,6 +1969,85 @@ a:hover .cp-social i {
   background-color: rgba(0, 0, 0, .2) !important
 
 }
-.navbar-default.navbar-nav>.active>a { background-color: none;
-color: #fff;
+
+ .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>.active>a:focus {
+
+  color: #fff;
+background-color: rgba(0, 0, 0, .2) !important;
  }
+
+ .navbar-default .navbar-nav>li>a {
+
+  color: #fff;
+ }
+
+
+ .navbar-default .navbar-brand, .navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
+
+  color: #fff;
+ }
+
+ h1.heading {
+
+color: #fff;
+
+ }
+
+ .field{
+  padding-left: 15px;
+  padding-right: 15px;
+
+ }
+
+input[value="Log in"]{
+
+border: 1px solid #fff;
+background-color: #aaa;
+color: #fff;
+border-radius: 7px;
+opacity: 0,85;
+
+}
+
+input[value="Log in"]:hover{
+
+opacity: 1;
+border: 1px solid #000;
+
+}
+
+label[for="user_password"]{
+
+    margin-bottom: 10px;
+    font-size: 13px;
+    font-weight: 400;
+    text-transform: uppercase;
+
+}
+
+.jumbotron>p {
+
+  color: #000;
+}
+
+.post-main-text>p {
+
+color: #000;
+
+}
+
+.post-text-preview>p {
+
+color: #000;
+
+}
+
+.input-group-lg input.form-control {
+
+border: 1px solid #666;
+
+}
+
+form .form-control{
+  color: grey;
+}
