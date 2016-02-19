@@ -514,7 +514,7 @@ section {
   right: 90px;
   width: 932px;
   height: 550px;
-  background: transparent url("macbook.png") top left / cover;
+  background: transparent url(asset-path("macbook.png")) top left / cover;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
 }
