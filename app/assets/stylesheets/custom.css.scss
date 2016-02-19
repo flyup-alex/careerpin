@@ -2051,3 +2051,10 @@ border: 1px solid #666;
 form .form-control{
   color: grey;
 }
+
+input[type="text"]::webkit-input-placeholder {
+
+color: grey;
+}
+
+::-moz-placeholder, :-moz-placeholder {color: #333 !important;}
