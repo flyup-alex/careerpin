@@ -382,9 +382,10 @@ h6 {
 }
 p {
   margin-bottom: 33px;
-  font-weight: 300;
-  line-height: 1.7;
+  font-weight: 400;
+  line-height: 2;
   color: rgba(255, 255, 255, .8);
+  font-size: 18px;
 }
 p + p {
   margin-top: -(22px*.5);
@@ -525,7 +526,7 @@ section {
   width: 701px;
   height: 439px;
   overflow: hidden;
-  background-color: green;
+  background-color: #9B59B6;
 }
 /**
  * Background image
@@ -746,8 +747,8 @@ section {
 
 .btn-hollow {
 	color: #fff;
-	background-color: #1ABC9C !important;
-	border-color: #16A085;
+	background-color: #34495e !important;
+	border-color: white;
 	font-family: 'Open Sans', sans-serif;
 	text-transform: uppercase;
 	border-radius: 4px;
@@ -796,7 +797,7 @@ a:focus.btn-hollow {
 	font-family: 'Open Sans', sans-serif;
 	font-weight: bold;
 	margin: 15px 0;
-	color: #D35400;
+	color: #fff;
 }
 
 .pricing-table .description {
@@ -812,8 +813,8 @@ a:focus.btn-hollow {
 
 .pricing-table .cta-button .btn-warning {
 	color: #fff;
-	background-color: #E67E22 !important;
-	border-color: #D35400;
+	background-color: #34495e !important;
+	border-color: #fff;
 	font-family: 'Open Sans', sans-serif;
 	text-transform: uppercase;
 	border-radius: 4px;
@@ -1409,7 +1410,7 @@ h1 .fa-instagram {
 
 .form-inline label {
 	width: 50px;
-	margin-right: 15px;
+	margin-right: 0px;
 }
 
 .form-inline input[type="text"],
@@ -2062,3 +2063,83 @@ color: grey;
 color: #000;
 
 }
+
+.container {
+  
+  padding-top: 0px;
+
+}
+
+.navbar-right {
+  
+  margin-right: 15px; 
+
+}
+
+.heading.animated.animateUp {
+
+  color: #fff;
+}
+
+.special_class{
+color: #fff;
+text-decoration: none;
+
+}
+
+.signup_back.page-wrapper{
+
+  background-color: #8e44ad;
+  height: 100vh;
+  margin-top: -50px;
+  display: -webkit-box;
+display: -webkit-flex;
+display: -ms-flexbox;
+display: flex;
+-webkit-box-pack: center;
+-webkit-justify-content: center;
+-ms-flex-pack: center;
+justify-content: center;
+-webkit-box-align: center;
+-webkit-align-items: center;
+-ms-flex-align: center;
+align-items: center;
+}
+
+.signup_career_pin{
+
+text-transform: none;
+padding-top: 25px;
+font-size: 1em;
+
+}
+
+.big{
+
+  font-size: 6em;
+}
+
+.signup_career_pin[for="user_Służy do późniejszej weryfikacji"]{
+padding-top: 5px;
+
+}
+
+.sign_up_input{
+
+width: 250px;
+height: 35px;
+line-height: 35px;
+border-radius: 10px;
+padding-left: 10px;
+color: #666;
+
+
+}
+
+.signup_back.page-wrapper.pricing{
+
+  background-color: #2980b9;
+  padding: -10px;
+
+  }
+

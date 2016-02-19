@@ -9,6 +9,7 @@ $(document).ready(function(){
     input.trigger('fileselect', [numFiles, label]);
 	});
 	
+
 	
 	// check if p has more than 140 characters and leaves only 140
 	$( ".cp-text p" ).each(function() {

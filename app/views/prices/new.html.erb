@@ -1,9 +1,51 @@
-
-
+<div class = "signup_back  page-wrapper">
+  <center><h2 class = "special_class">Wybierz plan:</h2>
 
 <%= form_for(@price) do |f| %>
-  <p><%= f.radio_button(:account, 'Premium', :checked => true) %> To jest konto Premium</p>
-  <%= f.radio_button(:account, 'Standard') %></p>
-  <p><%= f.hidden_field(:user_id, :value => current_user.id)%>
-  <%= f.submit "Wybierz"%>
+
+
+
+              
+              <div class="col-xs-6">
+                <div class="plan">
+                  <ul class="pricing-table list-unstyled" data-animate-in="animateUp">
+                      <li class="title" data-animate-in="animateUp">Standard</li>
+                      <li class="price" data-animate-in="animateUp">99 zł / Miesiąc</li>
+                      <li class="description delay_1" data-animate-in="animateUp">1 Career-Pin</li>
+                      <li class="description delay_1" data-animate-in="animateUp">2 podstrony</li>
+
+                      <li class="description delay_1" data-animate-in="animateUp">Darmowy pierwszy miesiąc</li>
+
+                      <li class="cta-button delay_2" data-animate-in="animateUp">
+                        
+                        <%= f.radio_button(:account, 'Standard') %>
+                      </li>
+                  </ul>
+                </div>
+              </div>
+              
+              <div class="col-xs-6">
+                <div class="plan">
+                  <ul class="pricing-table list-unstyled" data-animate-in="animateUp">
+                      <li class="title" data-animate-in="animateUp">Premium</li>
+                      <li class="price" data-animate-in="animateUp">149 zł / Miesiąc</li>
+                      <li class="description delay_1" data-animate-in="animateUp">1 Career-Pin</li>
+                      <li class="description delay_1" data-animate-in="animateUp">Dowolna ilość podstron</li>
+                      <li class="description delay_1" data-animate-in="animateUp">Tworzenie autorskich postów</li>
+                      <li class="description delay_1" data-animate-in="animateUp">Help Desk</li>
+                      <li class="description delay_1" data-animate-in="animateUp">Darmowy pierwszy miesiąc</li>
+                      <li class="cta-button delay_2" data-animate-in="animateUp">
+                      <%= f.radio_button(:account, 'Premium', :checked => true) %>
+                      <%= f.hidden_field(:user_id, :value => current_user.id )%>
+                      </li>
+                  </ul>
+                    <%= f.submit "Wybierz", class: "btn btn-lg btn-green"%>
 <% end %>
+                </div>
+              </div>
+</div>
+
+
+
+
+
