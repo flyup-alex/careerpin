@@ -1,0 +1,83 @@
+//
+// Navbar
+//
+
+@grid-float-breakpoint: @screen-md-min;
+@navbar-height: 80px;
+@navbar-default-bg: fade(black,20%);
+@navbar-default-border: transparent;
+@navbar-default-color: fade(@text-color, 70%);
+@navbar-default-link-color: @navbar-default-color;
+@navbar-default-link-hover-color: @text-color;
+@navbar-default-link-hover-bg: transparent;
+@navbar-default-link-active-color: @text-color;
+@navbar-default-link-active-bg: transparent;
+@navbar-default-brand-color: @text-color;
+@navbar-default-brand-hover-color: @text-color;
+
+
+// General 
+
+.navbar-default {
+  text-shadow: 1px 1px 3px fade(black,30%);
+  transition: background-color .3s @timing-fn;
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0);
+}
+
+
+// Navbar links
+
+.navbar-nav > li > a {
+  position: relative;
+  font-size: (@font-size-base - 2px);
+  transition: color .2s linear;
+}
+
+
+// Navbar brand
+
+.navbar-brand {
+  font-weight: 400;
+  font-size: 22px;
+  font-family: @headings-font-family;
+  text-transform: capitalize;
+}
+
+
+// Navbar buttons
+
+.navbar-btn {
+  width: 100%;
+}
+@media(min-width: @grid-float-breakpoint) {
+  .navbar-btn {
+    width: auto;
+    margin-top: ((@navbar-height - 52px)/2);
+    margin-bottom: ((@navbar-height - 52px)/2);
+    margin-left: @navbar-padding-horizontal;
+  }
+}
+
+
+// Navbar toggle
+
+@navbar-default-toggle-border-color: transparent;
+@navbar-default-toggle-hover-bg: transparent;
+@navbar-default-toggle-icon-bar-bg: @navbar-default-link-color;
+
+.navbar-toggle {
+  background-color: transparent;
+
+  &:hover {
+    .icon-bar {
+      background-color: @navbar-default-link-hover-color;
+    }
+  }
+}
+
+// Navbar mobile
+
+.navbar-mobile {
+  background-color: fade(black,80%);
+}

@@ -1,0 +1,86 @@
+//
+// Buttons
+//
+
+#button {
+
+  .btn(@btn-bg; 
+       @btn-hover-bg;
+       @btn-border;
+       @btn-hover-border;
+       @btn-color;
+       @btn-hover-color) {
+    background-color: @btn-bg;
+    border: 1px solid @btn-border;
+    border-radius: 2px;
+    color: @btn-color;
+    font-size: (@font-size-base - 2px);
+    font-weight: 400;
+    transition: all .1s linear;
+    transform: translateZ(0);
+  
+    > .fa {
+      margin-right: 5px;
+    }
+    &:hover {
+      background-color: @btn-hover-bg;
+      border-color: @btn-hover-border;
+      color: @btn-hover-color;
+    }
+    &:focus, &.focus,
+    &:active, &:active:hover, &:active:focus,
+    &.active, &.active:hover, &.active:focus {
+      background: @btn-hover-bg;
+      border-color: @btn-hover-border;
+      box-shadow: inset 0 3px 5px 0 fade(black,12.5%);
+      outline: none;
+      color: @btn-hover-color;
+    }
+  }
+}
+
+
+/* Button Colors */
+
+.btn-primary {
+  #button > .btn(
+    fade(white,10%);
+    fade(white,15%);
+    transparent;
+    transparent;
+    fade(white,90%);
+    white
+  );
+}
+.navbar-btn {
+  #button > .btn(
+    fade(black,10%);
+    fade(black,15%);
+    transparent;
+    transparent;
+    fade(white,90%);
+    white
+  );
+}
+
+
+/* Button sizes */
+
+.btn {
+  padding: 10px 20px;
+}
+.btn-lg {
+  padding: 15px 30px;
+}
+
+
+/* Mobile look */
+
+@media(max-width: @screen-xs-max) {
+  
+  .btn {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 5px;
+  }
+}

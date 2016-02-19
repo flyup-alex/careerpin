@@ -1,0 +1,156 @@
+/* ============================
+   LIGHT VERSION
+  ============================ */
+
+/**
+ * Typography
+ */
+
+@text-color: #333;
+
+p {
+  color: @text-color;
+}
+.list-ticked {
+
+  > li  {
+    color: @text-color;
+
+    > .fa {
+      background-color: @brand-primary;
+    }
+  }
+}
+
+
+/**
+ * Colors
+ */
+
+@brand-primary: #4398B5;
+
+
+/**
+ * Navbar
+ */
+
+@navbar-default-color: fade(@text-color,50%);
+
+.navbar-default {
+  background-color: transparent;
+  text-shadow: none;
+}
+.navbar-nav > li > a {
+  font-weight: 400;
+}
+.navbar-mobile {
+  background-color: fade(white,99%);
+}
+
+
+/**
+ * Buttons
+ */
+
+.btn-primary,
+.navbar-btn {
+  #button > .btn(
+    @brand-primary;
+    darken(@brand-primary,5%);
+    transparent;
+    transparent;
+    fade(white,90%);
+    white
+  );
+}
+
+
+/**
+ * Tabs
+ */
+
+.nav-tabs {
+
+  > li {
+
+    > a {
+      background-color: @brand-primary;
+      color: fade(white,70%);
+      margin-right: 0;
+      border-right: 1px solid fade(black,10%);
+
+      &:hover, &:focus {
+        background-color: darken(@brand-primary,5%);
+        color: white;
+        border-right: 1px solid fade(black,8%);
+      }
+    }
+    &.active > a, &.active > a:hover, &.active > a:focus {
+      background-color: darken(@brand-primary,5%);
+      color: white;
+      border-right: 1px solid fade(black,8%);
+    }
+  }
+}
+
+
+/**
+ * Carousel
+ */
+
+.carousel-indicators {
+
+  > li {
+    background-color: transparent;
+    border: 1px solid @brand-primary;
+
+    &.active {
+      background-color: @brand-primary;
+    }
+  }
+}
+
+
+/**
+ * Forms 
+ */
+
+form {
+
+  .form-control {
+    background-color: white;
+    border: 1px solid #ddd;
+
+    &:focus {
+      border-color: #ccc;
+      background-color: white !important;
+    }
+  }
+}
+
+
+/**
+ * General
+ */
+
+section {
+  text-shadow: none;
+}
+::selection {
+  background-color: @brand-primary;
+  color: white;
+}
+
+
+/**
+ * Background image
+ */
+
+.bg-image {
+  background-image: url("../img/bg_2.jpg");
+
+  &:before {
+    background-color: #FFF;
+    opacity: .5;
+  }
+}

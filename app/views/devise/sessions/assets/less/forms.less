@@ -1,0 +1,34 @@
+//
+// Forms
+//
+
+form {
+
+  label {
+    font-size: (@font-size-base - 3px);
+    font-weight: 400;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .form-control {
+    padding: 10px 20px;
+    min-height: (@line-height-computed + 20px);
+    line-height: @line-height-computed;
+    background-color: fade(white,10%);
+    border-radius: 2px;
+    border: 0;
+    color: @text-color;
+    font-weight: 400;
+    font-size: 14px;
+    box-shadow: none;
+    outline: none;
+    resize: none;
+    .placeholder(fade(@text-color,50%));
+
+    &:focus {
+      box-shadow: none;
+      border-color: fade(@text-color,70%);
+      background-color: fade(white,10%) !important;
+    }
+  }
+}

@@ -1,0 +1,344 @@
+/*------------------------------------------------------------------
+Project:        Spotlight
+Author:         Simpleqode.com
+URL:            http://simpleqode.com/
+                https://twitter.com/YevSim
+                https://www.facebook.com/simpleqode
+Version:        1.0.1
+Created:        11/12/2015
+Last change:    21/12/2015
+-------------------------------------------------------------------*/
+
+/**
+ * Import LESS files
+ */
+
+@import "./../bootstrap/less/bootstrap.less";
+
+@import "animation.less";
+@import "buttons.less";
+@import "carousel.less";
+@import "colors.less";
+@import "forms.less";
+@import "misc.less";
+@import "navbar.less";
+@import "popovers.less";
+@import "tabs.less";
+@import "typography.less";
+
+
+/**
+ * General
+ */
+
+html {
+  position: relative;
+  height: 100%;
+}
+section {
+  position: relative;
+  text-shadow: 1px 1px 3px fade(black,30%);
+  transition: opacity 300ms @timing-fn;
+}
+::selection {
+  background-color: @brand-primary;
+}
+
+
+/**
+ * Devices
+ */
+
+.device__container {
+  position: fixed;
+  top: 130px; bottom: 50px; left: 0; right: 50%;
+}
+.device__slides {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: auto;
+  transition: transform 700ms @timing-fn;
+
+  > img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+/* iPhone */
+
+.iphone__container {
+  position: absolute;
+  top: 50%; right: 90px;
+  transform: translateY(-50%);
+  width: 270px; height: 550px;
+  background: transparent top left / cover;
+
+  &.black {
+    background-image: url(../img/iphone_black.png);
+  }
+  &.white {
+    background-image: url(../img/iphone_white.png);
+  }
+}
+.iphone__screen {
+  position: absolute;
+  top: 65px; left: 16px;
+  background-color: green;
+  width: 237px; height: 420px;
+  overflow: hidden;
+}
+
+/* Samsung */
+
+.samsung__container {
+  position: absolute;
+  top: 50%; right: 90px;
+  transform: translateY(-50%);
+  width: 284px; height: 550px;
+  background: transparent top left / cover;
+
+  &.black {
+    background-image: url(../img/samsung_black.png);
+  }
+  &.white {
+    background-image: url(../img/samsung_white.png);
+  }
+}
+.samsung__screen {
+  position: absolute;
+  top: 54px; left: 17px;
+  background-color: green;
+  width: 250px; height: 443px;
+  overflow: hidden;
+}
+
+/* Macbook */
+
+.macbook__container {
+  position: absolute;
+  top: 50%; right: 90px;
+  transform: translateY(-50%);
+  width: 932px; height: 550px;
+  background: transparent url("../img/macbook.png") top left / cover;
+}
+.macbook__screen {
+  position: absolute;
+  top: 39px; right: 115px;
+  background-color: green;
+  width: 701px; height: 439px;
+  overflow: hidden;
+}
+
+
+/**
+ * Background image
+ */
+
+.bg-image {
+  z-index: -1;
+  position: fixed;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background: url("../img/bg_1.jpg") no-repeat center 0 / cover;
+  transform: translateY(0);
+  transition: transform 700ms @timing-fn;
+
+  &:before {
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    content: "";
+    background-color: #000;
+    opacity: .5;
+  }
+}
+
+
+/**
+ * Background colors
+ */
+
+.bg-colors {
+  z-index: -1;
+  position: fixed;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background-color: #fff;
+  transition: background-color 700ms linear;
+  transform: translateZ(0);
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0; left: -50%;
+    width: 150%; height: 100%;
+    #gradient > .radial(fade(white,20%); transparent);
+  }
+}
+
+
+/**
+ * Side menu
+ */
+
+.side-menu {
+  z-index: 1000;
+  position: fixed;
+  top: 50%; left: 50%;
+  height: auto; width: auto;
+  transform: translate((@container-sm/2 - @grid-gutter-width/2), -50%);
+  transition: opacity .3s @timing-fn;
+
+  > ul {
+    list-style: none;
+    padding-left: 0;
+
+    > li {
+      position: relative;
+      display: block;
+      margin: 15px 0;
+
+      > a {
+        display: block;
+        width: 14px; height: 14px;
+        line-height: 14px;
+        border-radius: 50%;
+        border: 2px solid @text-color;
+        text-align: center;
+        color: @text-color;
+        cursor: pointer;
+        opacity: .2;
+        transition: all .3s @timing-fn;
+      }
+      &.active > a {
+        opacity: 1 !important;
+        border-width: 7px;
+      }
+
+    }
+  }
+}
+@media(min-width: @screen-md-min) {
+  .side-menu {
+    transform: translate((@container-md/2 - @grid-gutter-width/2), -50%);
+  }
+}
+@media(min-width: @screen-lg-min) {
+  .side-menu {
+    transform: translate((@container-lg/2 - @grid-gutter-width/2), -50%);
+  }
+}
+
+
+/**
+ * Social links
+ */
+
+.social-links {
+  z-index: 1000;
+  position: fixed;
+  top: 50%; left: 50%;
+  height: auto; width: auto;
+  transform: translate((-@container-sm/2 + @grid-gutter-width/2), -50%);
+  transition: opacity .3s @timing-fn;
+
+  > ul {
+    list-style: none;
+    padding-left: 0;
+
+    > li {
+      position: relative;
+      display: block;
+      margin: 15px 0;
+
+      > a {
+        display: block;
+        width: 42px; height: 42px;
+        line-height: 42px;
+        border-radius: 50%;
+        border: 1px solid @text-color;
+        text-align: center;
+        color: @text-color;
+        cursor: pointer;
+        opacity: .4;
+        transition: all .3s @timing-fn;
+        transform: translateZ(0);
+
+        &:hover {
+          opacity: 1;
+        }
+      }
+
+    }
+  }
+}
+@media(min-width: @screen-md-min) {
+  .social-links {
+    transform: translate((-@container-md/2 + @grid-gutter-width/2), -50%);
+  }
+}
+@media(min-width: @screen-lg-min) {
+  .social-links {
+    transform: translate((-@container-lg/2 + @grid-gutter-width/2), -50%);
+  }
+}
+
+
+/**
+ * Heading
+ */
+
+.heading {
+  position: relative;
+  font-size: 36px;
+  margin-top: 0;
+  margin-bottom: @line-height-computed;
+}
+@media(max-width: @screen-xs-max) {
+  .heading {
+    font-size: 28px;
+  }
+}
+
+
+/**
+ * Contact us
+ */
+
+#form_message {
+  display: none;
+  font-size: 14px;
+  text-shadow: none;
+
+  &.alert-success {
+    display: block;
+  }
+}
+#form_sendemail {
+
+  .help-block {
+    display: none;
+    margin-bottom: 0;
+    font-weight: 400;
+    font-size: 14px;
+    color: @brand-danger;
+  }
+  .has-error {
+    position: relative;
+
+    .form-control {
+      border: 1px solid @brand-danger;
+      background-color: transparent;
+      padding-right: 42px;
+      box-shadow: none;
+    }
+    .help-block {
+      display: block;
+    }
+  }
+}
+
+
+/**
+ * Light version (should be uncommented to enable light version styles)
+ */
+
+// @import "light-version.less";
