@@ -1,6 +1,13 @@
 <div class = "signup_back  page-wrapper">
     <center><h1 class = "special_class big">Witamy w Career-Pin!</h1>
-  <center><h2 class = "special_class">Zarejestruj się!</h2>
+      <div style="color: white;">
+      <h2><strong>Pozostało <%= 40 - User.all.size %> z 50 testowych kont.</strong></h2><h4>Skontaktuj się z nami, lub zarejestruj się a my skontaktujemy się z Tobą. Wprowadź swoje działania Employer Brandingowe na wyższy poziom przed wszystkimi.<h4>
+      
+      <h5>Aleksander Nowak</h5>
+      <h5>tel.: +48 796 798 700</h5>
+      <h5>mail: alex@flyup.pro</h5>
+    </div>
+  <center><h2 class = "special_class">Rejestracja:</h2>
 
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= devise_error_messages! %>
@@ -25,7 +32,7 @@
         </div>
         <br>
         <div class="actions special_class">
-          <%= f.submit "Sign up", class: "btn btn-default btn-lg btn-hollow" %>
+          <%= f.submit "Zarejestruj się", class: "btn btn-default btn-lg btn-hollow" %>
         </div>
   <% end %>
 </div>

@@ -20,9 +20,9 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: { sessions: 'mysessions', :registrations => "registrations"}
 
+
+  
   root to: "welcome#index"
-
-
 
 
   resources :articles
@@ -86,6 +86,7 @@ Rails.application.routes.draw do
   get 'select_pricing', to: 'prices#new'
 
   resources :prices
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.
